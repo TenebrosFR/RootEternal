@@ -3,18 +3,19 @@ using UnityEngine;
 public class WeaponHolder : MonoBehaviour
 {
     [SerializeField] public Animator weapon;
-    [SerializeField] int damage;
+    [SerializeField] public int damage;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Ennemy")
         {
-            other.transform.GetComponent<Ennemy>().TakeDammage(damage);
+            other.transform.GetComponent<Enemy>().TakeDammage(damage);
+        }
+        else {
         }
     }
 
     public void PlayAnim()
     {
-        Debug.Log("isdfufgbvrk,jhyufqdgbfjhd;gvesdbh:j");
         weapon.SetTrigger("HitAction");
     }
 }
