@@ -8,7 +8,7 @@ public class WeaponHolder : MonoBehaviour
     {
         if (other.tag == "Ennemy")
         {
-            other.transform.GetComponent<Enemy>().TakeDammage(damage);
+            other.transform.GetComponent<EnemyHealth>().TakeDammage(damage);
         }
         else {
         }
