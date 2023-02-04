@@ -8,6 +8,7 @@ public class Equipment : MonoBehaviour
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] Camera cam;
     [SerializeField] float Distance;
+    bool isLocked = false;
     public void OnEquip(InputAction.CallbackContext context) {
         if (!context.performed) return;
         TryEquip();
@@ -22,7 +23,7 @@ public class Equipment : MonoBehaviour
     }
     public void OnHit(InputAction.CallbackContext context)
     {
-        if (!context.performed)  return;
+        if (!context.performed || isLocked)  return;
         weaponHolder.PlayAnim();
     }
     public void OnGloryKill(InputAction.CallbackContext context)
@@ -34,6 +35,7 @@ public class Equipment : MonoBehaviour
             EnemyHealth enemy = firstHit.transform.GetComponent<EnemyHealth>();
             if (enemy.Hp <= weaponHolder.damage) {
                 enemy.StartGloryKill();
+                isLocked = true;
                 //ToDo Rajouter animation coté joueur (movement de main) quand le player seras fait
             }
         }

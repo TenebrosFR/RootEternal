@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.VFX;
+using utils;
 
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] public int Hp;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject explosion;
     bool isGoingToDie = false;
     // Start is called before the first frame update
     public void TakeDammage(int _damage) {
@@ -24,6 +27,9 @@ public class EnemyHealth : MonoBehaviour
     }
     private void FixedUpdate() {
         if (!isGoingToDie) return;
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("isDead")) Destroy(gameObject);
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("isDead")) {
+            Instantiate(explosion, transform.position.UpdateAxis(transform.position.y + 0.75f,VectorAxis.Y),explosion.transform.rotation);
+            Destroy(gameObject);
+        }
     }
 }
