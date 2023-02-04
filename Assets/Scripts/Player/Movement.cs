@@ -20,5 +20,5 @@ public class Movement : MonoBehaviour
         var forwardMovement = (transform.forward * currentDirection.z).normalized;
         var sideMovement = (transform.right * currentDirection.x).normalized;
         rb.AddForce((forwardMovement + sideMovement).Restricted(false,true).normalized * Time.fixedDeltaTime * movementForce, ForceMode.VelocityChange);
-    }ù
+    }
 }
