@@ -8,7 +8,7 @@ public class Equipment : MonoBehaviour
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] Camera cam;
     [SerializeField] float Distance;
-    public void OnEquip(InputAction.CallbackContext context) {
+    public void OnInteract(InputAction.CallbackContext context) {
         if (!context.performed) return;
         TryEquip();
     }
@@ -16,13 +16,13 @@ public class Equipment : MonoBehaviour
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
         Physics.Raycast(ray.origin, ray.direction, out RaycastHit firstHit, Distance);
         if (firstHit.transform && firstHit.transform.gameObject.layer == Mathf.Log(weaponLayer.value, 2)) {
-            weaponHolder.weapon.SetInteger("ID",firstHit.transform.GetComponent<Weapon>().ID);
+            weaponHolder.weapon.SetInteger("ID", firstHit.transform.GetComponent<Weapon>().ID);
             Destroy(firstHit.transform.gameObject);
         }
     }
     public void OnHit(InputAction.CallbackContext context)
     {
-        if (!context.performed || ManagePlayer.isLocked)  return;
+        if (!context.performed)  return;
         weaponHolder.PlayAnim();
     }
     public void OnGloryKill(InputAction.CallbackContext context)

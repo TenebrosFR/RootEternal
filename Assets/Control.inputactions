@@ -6,42 +6,6 @@
             "id": "69a29a16-d08c-43db-b553-da3108b26534",
             "actions": [
                 {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "7597b70e-440d-4ec9-afae-d3e09ba27a8c",
-                    "expectedControlType": "Vector3",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Hit",
-                    "type": "Button",
-                    "id": "1cea0846-252d-4817-817d-c1d83ff0dad9",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "1fe673fa-8dfe-409a-a896-a51c9e59289b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "GloryKill",
-                    "type": "Button",
-                    "id": "3df82197-4e5f-4f15-a40d-318d6eb92975",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Mouse X",
                     "type": "Value",
                     "id": "fcb6b2d3-155f-46cc-ad91-1a5033827216",
@@ -58,42 +22,45 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "aabf320c-a372-493a-9ae0-7e510a400668",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Hit",
+                    "type": "Button",
+                    "id": "a5cd20ed-4ca4-4998-9d7d-89b24ddd1e16",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "cdc0ad94-46a2-4244-bda0-16feef6e3ac0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GloryKill",
+                    "type": "Button",
+                    "id": "ee398355-7438-4153-8321-529405bd8b2c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "9e885d4c-f8d6-413b-ad5c-d777743a2ab9",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Hit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "92382b1c-76ea-4206-b466-950334b8f3df",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "154cf921-d364-4b9c-ba25-91c269dbb36c",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "GloryKill",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "e3e3d33e-6607-408b-9beb-daf56fe72bb3",
@@ -118,80 +85,91 @@
                 },
                 {
                     "name": "3D Vector",
-                    "id": "418fc3a4-1c4a-4223-96e3-018583a408e5",
+                    "id": "3f4d5543-10b2-422b-9f93-e99f82d08327",
                     "path": "3DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Movement",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "458d5d6e-d6e9-4ce5-8881-c52dbe80481d",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "8f5cca48-9026-4349-ad8c-88c6c806053a",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "left",
-                    "id": "c39ca27e-d06a-42b2-b666-89ca4f7729bd",
+                    "id": "9b186c78-72c3-42f1-b500-f4fb24381a4b",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "438b8d28-712f-4647-87df-a45c2dcdf503",
+                    "id": "af73807b-dc3f-4f99-82e5-9738256ea7cc",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "forward",
-                    "id": "7e14c198-8372-4464-9554-7086da8d0d04",
+                    "id": "54c7083f-bc17-490e-b8e7-e5f2ffac36b4",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "backward",
-                    "id": "7620d34f-d66d-459e-91ae-76432aa2ffb9",
+                    "id": "6ee8c671-aeee-439e-bf3a-8f2fb0b8f4bb",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "fde1e1e5-2405-4591-9155-1335fc3b25b2",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cdab4d38-7aca-4c2c-b051-74fecb73812b",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b06fcf95-90b2-4995-8e8f-400688eb5c7d",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GloryKill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -835,18 +835,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5129767901799455667, guid: 8123fa3c882522f499f8a0ea99afcd6a, type: 3}
-      propertyPath: Distance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5410420507893341781, guid: 8123fa3c882522f499f8a0ea99afcd6a, type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5410420507893341781, guid: 8123fa3c882522f499f8a0ea99afcd6a, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 5410420507893341782, guid: 8123fa3c882522f499f8a0ea99afcd6a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -890,10 +878,6 @@ PrefabInstance:
     - target: {fileID: 5410420507893341782, guid: 8123fa3c882522f499f8a0ea99afcd6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5410420507893341787, guid: 8123fa3c882522f499f8a0ea99afcd6a, type: 3}
-      propertyPath: movementForce
-      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 5410420507893341788, guid: 8123fa3c882522f499f8a0ea99afcd6a, type: 3}
       propertyPath: m_Name

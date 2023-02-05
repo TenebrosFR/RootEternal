@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f52d934586a73a469139b408071deda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponHolder: {fileID: 0}
+  weaponHolder: {fileID: 2858230454019875239}
   weaponLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -445,6 +445,14 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fcb6b2d3-155f-46cc-ad91-1a5033827216
+    m_ActionName: Player/Mouse X[/Mouse/delta/y]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 801e06e0-6793-4d85-8840-8449c9adc324
+    m_ActionName: Player/Mouse Y[/Mouse/delta/x]
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5410420507893341787}
         m_TargetAssemblyTypeName: Movement, Assembly-CSharp
@@ -458,8 +466,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 7597b70e-440d-4ec9-afae-d3e09ba27a8c
-    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+    m_ActionId: aabf320c-a372-493a-9ae0-7e510a400668
+    m_ActionName: Player/Movement[/Keyboard/a,/Keyboard/d,/Keyboard/w,/Keyboard/s]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5129767901799455667}
@@ -474,13 +482,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 1cea0846-252d-4817-817d-c1d83ff0dad9
+    m_ActionId: a5cd20ed-4ca4-4998-9d7d-89b24ddd1e16
     m_ActionName: Player/Hit[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5129767901799455667}
         m_TargetAssemblyTypeName: Equipment, Assembly-CSharp
-        m_MethodName: OnEquip
+        m_MethodName: OnInteract
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -490,7 +498,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 1fe673fa-8dfe-409a-a896-a51c9e59289b
+    m_ActionId: cdc0ad94-46a2-4244-bda0-16feef6e3ac0
     m_ActionName: Player/Interact[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
@@ -506,16 +514,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 3df82197-4e5f-4f15-a40d-318d6eb92975
+    m_ActionId: ee398355-7438-4153-8321-529405bd8b2c
     m_ActionName: Player/GloryKill[/Keyboard/f]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: fcb6b2d3-155f-46cc-ad91-1a5033827216
-    m_ActionName: Player/Mouse X[/Mouse/delta/y]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 801e06e0-6793-4d85-8840-8449c9adc324
-    m_ActionName: Player/Mouse Y[/Mouse/delta/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -583,3 +583,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2376786033842119470, guid: f0afb4e91335dfe448e11922a509522e, type: 3}
   m_PrefabInstance: {fileID: 528736700353610380}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2858230454019875239 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2376786033842119467, guid: f0afb4e91335dfe448e11922a509522e, type: 3}
+  m_PrefabInstance: {fileID: 528736700353610380}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3d87cfc110afd24d888cd7de42fb859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
