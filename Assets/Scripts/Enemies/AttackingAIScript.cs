@@ -13,12 +13,17 @@ public class AttackingAIScript : MonoBehaviour
     [SerializeField] float timeBetweenAttacks, attackRange;
     [SerializeField] bool playerInAttackRange;
 
-    [SerializeField] GameObject EnemyShootRange;
+    private GameObject EnemyShootRange;
 
     [SerializeField] GameObject projectiles;
 
     bool alreadyAttacked;
 
+    private void Start()
+    {
+        EnemyShootRange = GameObject.Find("EnemyShootRange");
+    }
+    
     private void Awake() {
         player = GameObject.Find(playerName).transform;
         agent = GetComponent<NavMeshAgent>();
