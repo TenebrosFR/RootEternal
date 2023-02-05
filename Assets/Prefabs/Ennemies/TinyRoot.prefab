@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1390084484211556903}
   - component: {fileID: 8603757106276374618}
   - component: {fileID: 5696600792156955966}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: TinyRoot
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 4949872445119070142}
   - component: {fileID: 4949872445119070141}
   - component: {fileID: 4949872445119070140}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Half
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 4949872445498564563}
   - component: {fileID: 4949872445498564568}
   - component: {fileID: 4949872445498564567}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Half (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
