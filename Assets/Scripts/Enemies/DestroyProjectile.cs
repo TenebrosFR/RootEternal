@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class DestroyProjectile : MonoBehaviour
 {
-    [SerializeField] GameObject self;
     [SerializeField] string groundName;
     [SerializeField] Transform projectileTransform;
+    [SerializeField] GameObject range;
+    Vector3 StartPos;
+
+    private void Start() {
+        StartPos = gameObject.transform.position;
+    }
 
     private void Update() {
-        if (projectileTransform.position.y <= -0.75) {
-            Destroy(self);
+        if (Vector3.Distance(StartPos, gameObject.transform.position) >= 0.75*range.transform.localScale.x ) {
+            Destroy(gameObject);
         }
     }
 }

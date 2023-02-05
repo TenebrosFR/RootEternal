@@ -41,8 +41,8 @@ public class AttackingAIScript : MonoBehaviour
 
         if (!alreadyAttacked) {
 
-            Rigidbody rb  = Instantiate(projectiles, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+            Rigidbody rb  = Instantiate(projectiles, transform.position + transform.forward, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 8f, ForceMode.Impulse);
             // rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
             alreadyAttacked = true;
