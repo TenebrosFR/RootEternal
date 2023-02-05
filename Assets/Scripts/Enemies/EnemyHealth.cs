@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public int Hp;
     [SerializeField] Animator animator;
     [SerializeField] GameObject explosion;
+    [SerializeField] Rigidbody rb;
     bool isGoingToDie = false;
     // Start is called before the first frame update
     public void TakeDammage(int _damage) {
@@ -22,6 +23,8 @@ public class EnemyHealth : MonoBehaviour
         Destroy(gameObject);
     }
     public void StartGloryKill() {
+        rb.freezeRotation = true;
+        rb.constraints = RigidbodyConstraints.FreezePosition;
         animator.SetTrigger("GloryKill");
         isGoingToDie = true;
     }
@@ -29,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
         if (!isGoingToDie) return;
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("isDead")) {
             Instantiate(explosion, transform.position.UpdateAxis(transform.position.y + 0.75f,VectorAxis.Y),explosion.transform.rotation);
+            ManagePlayer.ChangeLockState();
             Destroy(gameObject);
         }
     }
