@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.VFX;
 using utils;
 
-public class EnemyHealth : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     [SerializeField] public int Hp;
     [SerializeField] Animator animator;

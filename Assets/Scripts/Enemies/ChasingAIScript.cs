@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class ChasingAIScript : MonoBehaviour {
-    NavMeshAgent agent;
-    [SerializeField] EnemyHealth script;
+    [SerializeField] Enemy script;
     [SerializeField] Animator animator;
-    public bool isStatic = false;
+    [SerializeField] public bool isStatic = false;
+    NavMeshAgent agent;
     private void Init() {
         agent = GetComponent<NavMeshAgent>();
     }

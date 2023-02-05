@@ -87,6 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script: {fileID: 36118794329644929}
   animator: {fileID: 1600623062615077414}
+  isStatic: 0
 --- !u!1001 &7015816763795366024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -256,7 +257,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.03
+  m_Radius: 0.04
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &36118794329644929
 MonoBehaviour:
