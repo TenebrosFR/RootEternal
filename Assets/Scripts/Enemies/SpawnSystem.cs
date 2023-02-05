@@ -7,26 +7,49 @@ using Random = UnityEngine.Random;
 public class SpawnSystem : MonoBehaviour
 {
 
-    public GameObject enemy1;
-    public GameObject enemy2;
+    public GameObject simpleRoot;
+    public GameObject bigRoot;
+    public GameObject rangeRoot;
+    public GameObject fastRoot;
     [Header("Wave 1")] 
     public int enemy1Count;
-    public int _enemy1Number;
+    public int enemy1Number;
     [Header("Wave 2")]
     public int enemy2Count;
-    public int _enemy2Number;
-    public int enemyRange2Count;
-    public int _enemyRange2Number;
+    public int enemy2Number;
+    public int enemyBig2Count;
+    public int enemyBig2Number;
     [Header("Wave 3")]
     public int enemy3Count;
-    public int _enemy3Number;
+    public int enemy3Number;
     public int enemyRange3Count;
-    public int _enemyRange3Number;
+    public int enemyRange3Number;
+    public int enemyBig3Count;
+    public int enemyBig3Number;
+    [Header("Wave 4")]
+    public int enemy4Count;
+    public int enemy4Number;
+    public int enemyFast4Count;
+    public int enemyFast4Number;
+    public int enemyBig4Count;
+    public int enemyBig4Number;
+    [Header("Wave 5")]
+    public int enemy5Count;
+    public int enemy5Number;
+    public int enemyRange5Count;
+    public int enemyRange5Number;
+    public int enemyFast5Count;
+    public int enemyFast5Number;
+    public int enemyBig5Count;
+    public int enemyBig5Number;
+    
     
     [Header("Total d'enemies tués")]
-    public int _totalEnemyKilled;
-    public int _totalEnemy1Killed;
-    public int _totalEnemy2Killed;
+    public int totalEnemyKilled;
+    public int totalEnemy1Killed;
+    public int totalEnemy2Killed;
+    public int totalEnemy3Killed;
+    public int totalEnemy4Killed;
     
     private Boolean _waveOne = true;
     private Boolean _waveTwo = false;
@@ -34,8 +57,10 @@ public class SpawnSystem : MonoBehaviour
     private Boolean _waveFour = false;
     private Boolean _waveFive = false;
 
-    private List<GameObject> enemies1 = new List<GameObject>();
-    private List<GameObject> enemies2 = new List<GameObject>();
+    private List<GameObject> tinyRootL = new List<GameObject>();
+    private List<GameObject> bigRootL = new List<GameObject>();
+    private List<GameObject> fastRootL = new List<GameObject>();
+    private List<GameObject> rangeRootL = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -45,31 +70,50 @@ public class SpawnSystem : MonoBehaviour
     private void Update() {
         
         
-        for(var i =0;i<enemies1.Count;i++)
+        for(var i =0;i<tinyRootL.Count;i++)
         {
-            if (!enemies1[i])
+            if (!tinyRootL[i])
             {
-                enemies1.Remove(enemies1[i]);
-                _totalEnemy1Killed += 1;
+                tinyRootL.Remove(tinyRootL[i]);
+                totalEnemy1Killed += 1;
             }
             
         }
-        for(var i =0;i<enemies2.Count;i++)
+        for(var i =0;i<bigRootL.Count;i++)
         {
-            if (!enemies2[i])
+            if (!bigRootL[i])
             {
-                enemies2.Remove(enemies2[i]);
-                _totalEnemy2Killed += 1;
+                bigRootL.Remove(bigRootL[i]);
+                totalEnemy2Killed += 1;
+            }
+            
+        }
+        for(var i =0;i<fastRootL.Count;i++)
+        {
+            if (!fastRootL[i])
+            {
+                fastRootL.Remove(fastRootL[i]);
+                totalEnemy3Killed += 1;
+            }
+            
+        }
+        for(var i =0;i<rangeRootL.Count;i++)
+        {
+            if (!rangeRootL[i])
+            {
+                rangeRootL.Remove(rangeRootL[i]);
+                totalEnemy4Killed += 1;
             }
             
         }
 
-        _totalEnemyKilled = _totalEnemy1Killed + _totalEnemy2Killed;
+        totalEnemyKilled = totalEnemy1Killed + totalEnemy2Killed + totalEnemy3Killed + totalEnemy4Killed;
         
+        /* ---   SYSTEM WAVES ----*/
         
         if (_waveOne)
         {
-            if (_totalEnemyKilled > _enemy1Number-5)
+            if (totalEnemyKilled > 10)
             {
                 _waveOne = false;
                 Debug.Log("Start Wave 2");
@@ -80,11 +124,33 @@ public class SpawnSystem : MonoBehaviour
         if (_waveTwo)
         {
 
-            if (_totalEnemyKilled > _enemy2Number-5 && _totalEnemy2Killed == 5)
+            if (totalEnemyKilled > 25 && totalEnemy2Killed == 5)
             {
                 _waveTwo = false;
                 Debug.Log("Start Wave 3");
                 _waveThree = true;
+                StartCoroutine(EnemyDrop());
+            }
+        }
+        if (_waveThree)
+        {
+
+            if (totalEnemyKilled > 45 && totalEnemy3Killed == 5)
+            {
+                _waveThree = false;
+                Debug.Log("Start Wave 4");
+                _waveFour = true;
+                StartCoroutine(EnemyDrop());
+            }
+        }
+        if (_waveFour)
+        {
+
+            if (totalEnemyKilled > enemy2Number-5 && totalEnemy2Killed == 5)
+            {
+                _waveFour = false;
+                Debug.Log("Start Wave 5");
+                _waveFive = true;
                 StartCoroutine(EnemyDrop());
             }
         }
@@ -93,143 +159,342 @@ public class SpawnSystem : MonoBehaviour
     
     IEnumerator EnemyDrop()
     {
-        
         /*  ----------------   WAVE ONE  -------------------*/
         
-        
         if (_waveOne)
-            {
-                Debug.Log("Start Wave 1");
+        {
+            Debug.Log("Start Wave 1");
                 
-                while (enemy1Count < _enemy1Number)
+            while (enemy1Count < enemy1Number)
+            {
+                bool objectSpawned = false;
+                while (!objectSpawned)
                 {
-                    bool objectSpawned = false;
-                    while (!objectSpawned)
+
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
+                        transform.position.z + Random.Range(-50, 50));
+
+                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
                     {
-
-                        Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                            transform.position.z + Random.Range(-50, 50));
-
-                        if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            enemies1.Add(Instantiate(enemy1, objectPosition, Quaternion.identity));
-                            yield return new WaitForSeconds(0.1f);
-                            enemy1Count += 1;
-                            objectSpawned = true;
-                        }
-
+                        continue;
                     }
+                    else
+                    {
+                        tinyRootL.Add(Instantiate(simpleRoot, objectPosition, Quaternion.identity));
+                        yield return new WaitForSeconds(0.1f);
+                        enemy1Count += 1;
+                        objectSpawned = true;
+                    }
+
                 }
             }
+        }
 /*  ----------------   WAVE TWO  -------------------*/
-            if (_waveTwo)
+        if (_waveTwo)
+        {
+            while (enemy2Count < enemy2Number)
             {
-                while (enemy2Count < _enemy2Number)
+                bool objectSpawned = false;
+                while (!objectSpawned)
                 {
-                    bool objectSpawned = false;
-                    while (!objectSpawned)
+
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
+                        transform.position.z + Random.Range(-50, 50));
+
+                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
                     {
-
-                        Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                            transform.position.z + Random.Range(-50, 50));
-
-                        if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            enemies1.Add(Instantiate(enemy1, objectPosition, Quaternion.identity));
-                            yield return new WaitForSeconds(0.1f);
-                            enemy2Count += 1;
-                            objectSpawned = true;
-                        }
-
+                        continue;
                     }
-                }
-
-                while (enemyRange2Count < _enemyRange2Number)
-                {
-                    bool objectSpawned = false;
-                    while (!objectSpawned)
+                    else
                     {
-
-                        Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                            transform.position.z + Random.Range(-50, 50));
-
-                        if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            enemies2.Add(Instantiate(enemy2, objectPosition, Quaternion.identity));
-                            yield return new WaitForSeconds(0.1f);
-                            enemyRange2Count += 1;
-                            objectSpawned = true;
-                        }
-
+                        tinyRootL.Add(Instantiate(simpleRoot, objectPosition, Quaternion.identity));
+                        yield return new WaitForSeconds(0.1f);
+                        enemy2Count += 1;
+                        objectSpawned = true;
                     }
+
                 }
             }
-            
-            /*  ----------------   WAVE THREE  -------------------*/
-            
-            
-            if (_waveThree)
+
+            while (enemyBig2Count < enemyBig2Number)
             {
-                while (enemy3Count < _enemy3Number)
+                bool objectSpawned = false;
+                while (!objectSpawned)
                 {
-                    bool objectSpawned = false;
-                    while (!objectSpawned)
+
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
+                        transform.position.z + Random.Range(-50, 50));
+
+                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
                     {
-
-                        Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                            transform.position.z + Random.Range(-50, 50));
-
-                        if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            enemies1.Add(Instantiate(enemy1, objectPosition, Quaternion.identity));
-                            yield return new WaitForSeconds(0.1f);
-                            enemy3Count += 1;
-                            objectSpawned = true;
-                        }
-
+                        continue;
                     }
-                }
-
-                while (enemyRange3Count < _enemyRange3Number)
-                {
-                    bool objectSpawned = false;
-                    while (!objectSpawned)
+                    else
                     {
-
-                        Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                            transform.position.z + Random.Range(-50, 50));
-
-                        if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            enemies2.Add(Instantiate(enemy2, objectPosition, Quaternion.identity));
-                            yield return new WaitForSeconds(0.1f);
-                            enemyRange3Count += 1;
-                            objectSpawned = true;
-                        }
-
+                        bigRootL.Add(Instantiate(bigRoot, objectPosition, Quaternion.identity));
+                        yield return new WaitForSeconds(0.1f);
+                        enemyBig2Count += 1;
+                        objectSpawned = true;
                     }
+
                 }
             }
+        }
+            
+        /*  ----------------   WAVE THREE  -------------------*/
+            
+            
+        if (_waveThree)
+        {
+            while (enemy3Count < enemy3Number)
+            {
+                bool objectSpawned = false;
+                while (!objectSpawned)
+                {
+
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
+                        transform.position.z + Random.Range(-50, 50));
+
+                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        tinyRootL.Add(Instantiate(simpleRoot, objectPosition, Quaternion.identity));
+                        yield return new WaitForSeconds(0.1f);
+                        enemy3Count += 1;
+                        objectSpawned = true;
+                    }
+
+                }
+            }
+
+            while (enemyRange3Count < enemyRange3Number)
+            {
+                bool objectSpawned = false;
+                while (!objectSpawned)
+                {
+
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
+                        transform.position.z + Random.Range(-50, 50));
+
+                    if ((objectPosition - transform.position).magnitude < 40 ||
+                        Physics.CheckSphere(objectPosition, 0))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        rangeRootL.Add(Instantiate(rangeRoot, objectPosition, Quaternion.identity));
+                        yield return new WaitForSeconds(0.1f);
+                        enemyRange3Count += 1;
+                        objectSpawned = true;
+                    }
+
+                }
+            }
+
+            while (enemyBig3Count < enemyBig3Number)
+            {
+                bool objectSpawned = false;
+                while (!objectSpawned)
+                {
+
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
+                        transform.position.z + Random.Range(-50, 50));
+
+                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        bigRootL.Add(Instantiate(bigRoot, objectPosition, Quaternion.identity));
+                        yield return new WaitForSeconds(0.1f);
+                        enemyRange3Count += 1;
+                        objectSpawned = true;
+                    }
+
+                }
+            }
+        }
+            
+        /*  ----------------   WAVE FOUR  -------------------*/
+            
+        if (_waveFour)
+        {
+            while (enemy4Count < enemy4Number)
+            {
+                bool objectSpawned = false;
+                while (!objectSpawned)
+                {
+
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
+                        transform.position.z + Random.Range(-50, 50));
+
+                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        tinyRootL.Add(Instantiate(simpleRoot, objectPosition, Quaternion.identity));
+                        yield return new WaitForSeconds(0.1f);
+                        enemy3Count += 1;
+                        objectSpawned = true;
+                    }
+
+                }
+            }
+
+            while (enemyFast4Count < enemyFast4Number)
+            {
+                bool objectSpawned = false;
+                while (!objectSpawned)
+                {
+
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
+                        transform.position.z + Random.Range(-50, 50));
+
+                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        fastRootL.Add(Instantiate(fastRoot, objectPosition, Quaternion.identity));
+                        yield return new WaitForSeconds(0.1f);
+                        enemyRange3Count += 1;
+                        objectSpawned = true;
+                    }
+
+                }
+            }
+            while (enemyBig4Count < enemyBig4Number)
+            {
+                bool objectSpawned = false;
+                while (!objectSpawned)
+                {
+
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
+                        transform.position.z + Random.Range(-50, 50));
+
+                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        bigRootL.Add(Instantiate(bigRoot, objectPosition, Quaternion.identity));
+                        yield return new WaitForSeconds(0.1f);
+                        enemyRange3Count += 1;
+                        objectSpawned = true;
+                    }
+
+                }
+            }
+        }
+            
+        /*  ----------------   WAVE FOUR  -------------------*/
+            
+        if (_waveFive)
+        {
+            while (enemy5Count < enemy5Number)
+            {
+                bool objectSpawned = false;
+                while (!objectSpawned)
+                {
+
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
+                        transform.position.z + Random.Range(-50, 50));
+
+                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        tinyRootL.Add(Instantiate(simpleRoot, objectPosition, Quaternion.identity));
+                        yield return new WaitForSeconds(0.1f);
+                        enemy3Count += 1;
+                        objectSpawned = true;
+                    }
+
+                }
+            }
+
+            while (enemyRange5Count < enemyRange5Number)
+            {
+                bool objectSpawned = false;
+                while (!objectSpawned)
+                {
+
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
+                        transform.position.z + Random.Range(-50, 50));
+
+                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        rangeRootL.Add(Instantiate(rangeRoot, objectPosition, Quaternion.identity));
+                        yield return new WaitForSeconds(0.1f);
+                        enemyRange3Count += 1;
+                        objectSpawned = true;
+                    }
+
+                }
+            }
+            while (enemyBig5Count < enemyBig5Number)
+            {
+                bool objectSpawned = false;
+                while (!objectSpawned)
+                {
+
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
+                        transform.position.z + Random.Range(-50, 50));
+
+                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        bigRootL.Add(Instantiate(bigRoot, objectPosition, Quaternion.identity));
+                        yield return new WaitForSeconds(0.1f);
+                        enemyRange3Count += 1;
+                        objectSpawned = true;
+                    }
+
+                }
+            }
+                
+            while (enemyFast5Count < enemyFast5Number)
+            {
+                bool objectSpawned = false;
+                while (!objectSpawned)
+                {
+
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
+                        transform.position.z + Random.Range(-50, 50));
+
+                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        fastRootL.Add(Instantiate(fastRoot, objectPosition, Quaternion.identity));
+                        yield return new WaitForSeconds(0.1f);
+                        enemyRange3Count += 1;
+                        objectSpawned = true;
+                    }
+
+                }
+            }
+        }
     }
 
 }
