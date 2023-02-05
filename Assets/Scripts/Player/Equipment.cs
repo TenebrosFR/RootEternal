@@ -9,6 +9,7 @@ public class Equipment : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] float Distance;
     [SerializeField] public Collider col;
+
     public void OnInteract(InputAction.CallbackContext context) {
         if (!context.performed) return;
         TryEquip();
@@ -19,6 +20,7 @@ public class Equipment : MonoBehaviour
         if (firstHit.transform && firstHit.transform.gameObject.layer == Mathf.Log(weaponLayer.value, 2)) {
             weaponHolder.weapon.SetInteger("ID", firstHit.transform.GetComponent<Weapon>().ID);
             Destroy(firstHit.transform.gameObject);
+            weaponHolder.SetWeaponMesh(firstHit.transform.GetComponent<Weapon>().ID);
         }
     }
     public void OnHit(InputAction.CallbackContext context)

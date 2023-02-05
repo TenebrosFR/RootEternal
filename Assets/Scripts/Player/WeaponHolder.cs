@@ -6,6 +6,11 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField] public int damage;
     [SerializeField] Equipment equip;
     [SerializeField] Animator animator;
+
+    //weapon mesh
+    [SerializeField] MeshFilter meshFilter;
+    [SerializeField] Mesh[] weaponsMesh;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Ennemy")
@@ -14,12 +19,21 @@ public class WeaponHolder : MonoBehaviour
         }
     }
 
+    public void SetWeaponMesh(int _index)
+    {
+        Debug.Log(_index);
+        Debug.Log(weaponsMesh);
+        meshFilter.mesh = weaponsMesh[_index];
+    }
+
     public void PlayAnim()
     {
         weapon.SetTrigger("HitAction");
     }
 
     private void FixedUpdate() {
-        if (equip.col.enabled && animator.GetCurrentAnimatorStateInfo(0).IsName("Empty"))   equip.ChangeStateCollider(false);
+        if (equip.col.enabled && animator.GetCurrentAnimatorStateInfo(0).IsName("Empty")) {
+            equip.ChangeStateCollider(false);
+        }  
     }
 }

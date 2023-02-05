@@ -41,6 +41,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _AlphaMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -92,7 +96,7 @@ Material:
     m_Ints: []
     m_Floats:
     - Brightness_Rim: 1.56
-    - Rim_Power: 1.27
+    - Rim_Power: 0
     - Toon_Ramp_Offset: 0.475
     - Toon_Ramp_Smoothness: 0.052
     - _BumpScale: 1
