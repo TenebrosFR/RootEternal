@@ -115,6 +115,6 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Toon_Ramp_Tint: {r: 0.49056596, g: 0.49056596, b: 0.49056596, a: 1}
-    - _Color: {r: 0.3962264, g: 0.20380408, b: 0.03987181, a: 1}
+    - _Color: {r: 0.18867922, g: 0.095389344, b: 0.015426591, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
