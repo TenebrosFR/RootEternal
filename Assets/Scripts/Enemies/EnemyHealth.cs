@@ -15,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
         }
         else {
             Hp -= _damage;
+            Debug.Log(Hp);
             Debug.Log("HP = " + Hp);
         }
     }
