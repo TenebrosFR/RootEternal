@@ -6,32 +6,33 @@ using UnityEngine.AI;
 public class AttackingAIScript : MonoBehaviour
 {
     
-    [SerializeField] string playerName;
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] Transform player;
-    [SerializeField] LayerMask whatIsGround, whatIsPlayer;
-    [SerializeField] float timeBetweenAttacks, attackRange;
-    [SerializeField] bool playerInAttackRange;
+    Transform player;
+    [SerializeField] float timeBetweenAttacks;
+    bool playerInAttackRange;
 
-    [SerializeField] GameObject EnemyShootRange;
+    [SerializeField] LayerMask EnemyShootRange;
 
     [SerializeField] GameObject projectiles;
 
     bool alreadyAttacked;
 
-    private void Awake() {
-        player = GameObject.Find(playerName).transform;
+    private void Init() {
+        player = ManagePlayer.player;
         agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update() {
-        if (playerInAttackRange) AttackPlayer(); 
-        if (!playerInAttackRange) ChasePlayer();
+        if (player && agent) {
+            if (playerInAttackRange) AttackPlayer();
+            if (!playerInAttackRange) ChasePlayer();
+            else Init();
+        }
     }
 
     private void ChasePlayer () {
-        transform.LookAt(player);
-        agent.SetDestination(player.position);        
+            transform.LookAt(player);
+            agent.SetDestination(player.position);
     }
 
     private void AttackPlayer () {
@@ -43,7 +44,6 @@ public class AttackingAIScript : MonoBehaviour
 
             Rigidbody rb  = Instantiate(projectiles, transform.position + transform.forward, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 8f, ForceMode.Impulse);
-            // rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -55,7 +55,7 @@ public class AttackingAIScript : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider other) {
-        if (other.gameObject.name == EnemyShootRange.name) {
+        if (other.gameObject.layer == Mathf.Log(EnemyShootRange.value, 2)) {
             playerInAttackRange = true;
         } else {
             playerInAttackRange = false;
