@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10756, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: d581f9153efb9a84c85f8f5e488d3300, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,7 +110,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -127,6 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c053b264f81d5e646a4ffa55b0f67e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  self: {fileID: 5006697317459638967}
   groundName: Ground
   projectileTransform: {fileID: 5043363367845900051}
+  range: {fileID: 7819579221266597746, guid: f9406d428702b02418d872ae32276985, type: 3}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -712,9 +712,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e46caa3fc296e949b0ad32223144285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 4949872444975925416, guid: 2f1a14510b420634392a608b6288fea0, type: 3}
-  enemyCount: 0
-  enemyNumber: 40
+  enemy1: {fileID: 4949872444975925416, guid: 2f1a14510b420634392a608b6288fea0, type: 3}
+  enemy2: {fileID: 4854178387308114953, guid: 3a80f43c05462f7429567ac7804d6278, type: 3}
+  enemy1Count: 0
+  _enemy1Number: 20
+  enemy2Count: 0
+  _enemy2Number: 25
+  enemyRange2Count: 0
+  _enemyRange2Number: 5
+  enemy3Count: 0
+  _enemy3Number: 30
+  enemyRange3Count: 0
+  _enemyRange3Number: 10
+  _totalEnemyKilled: 0
+  _totalEnemy1Killed: 0
+  _totalEnemy2Killed: 0
 --- !u!4 &1643227903
 Transform:
   m_ObjectHideFlags: 0
