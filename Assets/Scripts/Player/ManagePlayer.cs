@@ -10,6 +10,6 @@ public class ManagePlayer : MonoBehaviour
         player = transform;
     }
     public static void ChangeLockState() {
-        isLocked = !isLocked;
+        /*isLocked = !isLocked;*/
     }
 }

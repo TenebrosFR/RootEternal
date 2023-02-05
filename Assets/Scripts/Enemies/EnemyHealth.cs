@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] GameObject explosion;
     [SerializeField] Rigidbody rb;
     bool isGoingToDie = false;
+
     // Start is called before the first frame update
     public void TakeDammage(int _damage) {
         if (Hp - _damage <= 0) {

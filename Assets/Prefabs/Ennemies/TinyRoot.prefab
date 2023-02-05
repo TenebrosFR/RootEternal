@@ -75,6 +75,7 @@ MonoBehaviour:
   Hp: 10
   animator: {fileID: 4949872444975925418}
   explosion: {fileID: 4558641386236881451, guid: bbd6b664d77a4e341961dfdbaca6e706, type: 3}
+  rb: {fileID: 4949872444975925420}
 --- !u!54 &4949872444975925420
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -153,6 +154,7 @@ MonoBehaviour:
   Hp: 40
   animator: {fileID: 4949872444975925418}
   explosion: {fileID: 4558641386236881451, guid: bbd6b664d77a4e341961dfdbaca6e706, type: 3}
+  rb: {fileID: 4949872444975925420}
 --- !u!1 &4949872445119070138
 GameObject:
   m_ObjectHideFlags: 0
