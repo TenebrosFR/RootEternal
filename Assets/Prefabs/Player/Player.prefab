@@ -365,10 +365,10 @@ Rigidbody:
   m_Mass: 80
   m_Drag: 10
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &4667481311958201535
 MonoBehaviour:
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5410420507893341781}
   col: {fileID: 5410420507893341785}
-  movementForce: 40
+  movementForce: 125
 --- !u!114 &5129767901799455667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,7 +418,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   cam: {fileID: 5410420507044619564}
-  Distance: 5
+  Distance: 10
 --- !u!114 &5410420507893341780
 MonoBehaviour:
   m_ObjectHideFlags: 0
