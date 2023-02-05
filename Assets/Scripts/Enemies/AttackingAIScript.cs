@@ -11,7 +11,7 @@ public class AttackingAIScript : MonoBehaviour
     [SerializeField] float timeBetweenAttacks;
     bool playerInAttackRange;
 
-    [SerializeField] LayerMask EnemyShootRange;
+    [SerializeField] LayerMask PlayerMask;
 
     [SerializeField] GameObject projectiles;
 
@@ -54,8 +54,8 @@ public class AttackingAIScript : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    private void OnTriggerStay(Collider other) {
-        if (other.gameObject.layer == Mathf.Log(EnemyShootRange.value, 2)) {
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.layer == Mathf.Log(PlayerMask.value, 2)) {
             playerInAttackRange = true;
         } else {
             playerInAttackRange = false;

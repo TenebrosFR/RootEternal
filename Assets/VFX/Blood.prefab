@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4558641386236881448}
   - component: {fileID: 4558641386236881449}
+  - component: {fileID: 4057506439241316485}
   - component: {fileID: 4558641386236881450}
   - component: {fileID: 5645470729750204063}
+  - component: {fileID: -3614014677898200818}
   m_Layer: 0
   m_Name: Blood
   m_TagString: Untagged
@@ -51,7 +53,7 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 20
+      - m_Value: 200
         m_Name: Rate
         m_Overridden: 1
     m_Vector2f:
@@ -80,6 +82,21 @@ VisualEffect:
       - m_Value: 0
         m_Name: Loop
         m_Overridden: 1
+--- !u!114 &4057506439241316485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558641386236881451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b0463a52c649e42a5fade4b049a471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceProperty:
+    m_Name: 
+  target: {fileID: 0}
 --- !u!73398921 &4558641386236881450
 VFXRenderer:
   serializedVersion: 1
@@ -133,3 +150,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 4558641386236881449}
+--- !u!114 &-3614014677898200818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558641386236881451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdafc37f32b176349b1684c4455b98e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExecuteInEditor: 1
+  m_Bindings:
+  - {fileID: 4057506439241316485}
+  m_VisualEffect: {fileID: 4558641386236881449}

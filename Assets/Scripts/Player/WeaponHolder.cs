@@ -21,8 +21,6 @@ public class WeaponHolder : MonoBehaviour
 
     public void SetWeaponMesh(int _index)
     {
-        Debug.Log(_index);
-        Debug.Log(weaponsMesh);
         meshFilter.mesh = weaponsMesh[_index];
     }
 

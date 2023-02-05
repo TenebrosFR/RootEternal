@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] GameObject explosion;
     [SerializeField] Rigidbody rb;
+    [SerializeField] public int damage;
     public bool isGoingToDie = false;
     // Start is called before the first frame update
     public void TakeDammage(int _damage) {
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
             ManagePlayer.ChangeLockState(false);
             transform.LookAt(ManagePlayer.player);
             Instantiate(explosion, transform.position.UpdateAxis(transform.position.y + 0.75f, VectorAxis.Y), explosion.transform.rotation * transform.rotation);
-        }else if (animator.GetCurrentAnimatorStateInfo(0).IsName("isDead")) Destroy(gameObject);
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("isDead")) Destroy(gameObject);
     }
 }

@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class HP_Bar : MonoBehaviour
 {
     [SerializeField] private Health Health;
-    [SerializeField] private Slider _slider;
+    [SerializeField] private Slider mySlider;
     [SerializeField] private TextMeshProUGUI textMesh;
 
     // Start is called before the first frame update
@@ -24,8 +22,8 @@ public class HP_Bar : MonoBehaviour
 
     public void HPChange()
     {
-        Debug.Log("Health.health",gameObject);
-        _slider.value = Health.health;
+
+        mySlider.value = Health.health/100;
         textMesh.text = "HP " + Health.health + " / 100";
     }
 }

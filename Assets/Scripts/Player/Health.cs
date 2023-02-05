@@ -7,8 +7,9 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private HP_Bar hpBar;
     [SerializeField] private int healthMax = 100;
-    public int health;
     [SerializeField] private Canvas restartScreen;
+    [SerializeField] private LayerMask EnemyLayer;
+    public int health;
     
     // Start is called before the first frame update
     void Start()
@@ -16,12 +17,12 @@ public class Health : MonoBehaviour
         restartScreen.enabled = false;
         health = healthMax;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        TakeDamage(5);
+    private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.layer == Mathf.Log(EnemyLayer.value, 2)) {
+            TakeDamage(other.gameObject.GetComponent<Enemy>().damage);
+        }
     }
+
 
     void TakeDamage(int damage)
     {
