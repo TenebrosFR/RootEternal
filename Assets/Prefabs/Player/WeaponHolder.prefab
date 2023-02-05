@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2376786033842119464}
   - component: {fileID: 2376786033842119467}
   m_Layer: 6
-  m_Name: Weapon
+  m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2376786033842119474}
-  m_LocalRotation: {x: 0.7057234, y: 0.002384203, z: -0.0023749282, w: 0.70847946}
-  m_LocalPosition: {x: -0.7, y: -0.225, z: 0.8360004}
+  m_LocalRotation: {x: 0.7071028, y: 0.0023818875, z: -0.0023818875, w: 0.7071028}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.24976388, y: 1.28148, z: 0.224435}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 89.777, y: 0.386, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0.386, z: 0}
 --- !u!33 &2376786033842119471
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5ed4779e0224d9448965bff1ac0ab317, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

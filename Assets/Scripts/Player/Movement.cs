@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
     Vector3 currentDirection;
     
     public void OnMovement(InputAction.CallbackContext context) {
-        if(!context.performed) return;
+        if(!context.performed || ManagePlayer.isLocked) return;
         currentDirection = context.ReadValue<Vector3>();
     }
 

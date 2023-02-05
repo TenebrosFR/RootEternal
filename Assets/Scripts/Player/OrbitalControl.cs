@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using utils;
 
 public class OrbitalControl : MonoBehaviour
 {
@@ -9,11 +10,11 @@ public class OrbitalControl : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] Camera cam;
     [Range(0.1f, 9f)][SerializeField] float sensivity = 2f;
-    [Range(-180, 180)][SerializeField] float maxY;
-    [Range(-180, 180)][SerializeField] float minY;
+    [Range(-90, 90)][SerializeField] float maxY;
+    [Range(-90, 90)][SerializeField] float minY;
     //Conversion d'une valeur input d'axis en °
     private float convertorRotate = 0.04f;
-    public Vector3 rotation = Vector3.zero;
+    public Quaternion rotation = Quaternion.identity;
 
     private void Start() {
         Cursor.lockState = CursorLockMode.Confined;
@@ -22,14 +23,14 @@ public class OrbitalControl : MonoBehaviour
     private void FixedUpdate() {
         var timeSensivity = sensivity * Time.fixedDeltaTime;
         PlayerBody.transform.rotation = Quaternion.Euler(0,rotation.y * timeSensivity,0);
-        cam.transform.localRotation = Quaternion.Euler(rotation.x * timeSensivity, 2, 0);
+        cam.transform.localRotation = Quaternion.Euler(Mathf.Clamp(rotation.x * convertorRotate, minY, maxY), 0, 0);
     }
     public void OnRotateY(InputAction.CallbackContext context) {
+        if (ManagePlayer.isLocked) return;
         rotation.y += context.ReadValue<float>();
     }
     public void OnRotateX(InputAction.CallbackContext context) {
+        if (ManagePlayer.isLocked) return;
         rotation.x -= context.ReadValue<float>();
-        rotation.x = Mathf.Clamp(rotation.x, minY * 1/convertorRotate, maxY * 1 / convertorRotate);
-        Debug.Log("iv vhiopi^jhbhv bvbjkokpijhjvbv bvbjkokpoijhbhvbbvbjkjopo$iojhjbvbn vbvbjhkjokipiijhlbvn vbvbjhjkoi^jhbvbbvbjhkoipjhgvbcbhjhjoi");
     }
 }
