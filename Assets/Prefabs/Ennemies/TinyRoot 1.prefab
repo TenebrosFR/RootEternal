@@ -159,6 +159,7 @@ MonoBehaviour:
   animator: {fileID: 6687415009466290089}
   explosion: {fileID: 4558641386236881451, guid: bbd6b664d77a4e341961dfdbaca6e706, type: 3}
   rb: {fileID: 1632639189270085130}
+  isGoingToDie: 0
 --- !u!54 &1632639189270085130
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987cbd6f5382ecb489a2bd0afbd39cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  script: {fileID: 5655598541755449685}
 --- !u!114 &5879816387323642711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +240,7 @@ MonoBehaviour:
   animator: {fileID: 6687415009466290089}
   explosion: {fileID: 4558641386236881451, guid: bbd6b664d77a4e341961dfdbaca6e706, type: 3}
   rb: {fileID: 1632639189270085130}
+  isGoingToDie: 0
 --- !u!1 &8340271953835178638
 GameObject:
   m_ObjectHideFlags: 0
