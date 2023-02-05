@@ -1,22 +1,19 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ChasingAIScript : MonoBehaviour
-{
+public class ChasingAIScript : MonoBehaviour {
     NavMeshAgent agent;
-    Transform player;
-
+    [SerializeField] EnemyHealth script;
     private void Init() {
-        player = ManagePlayer.player;
         agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update() {
-        if (!player || !agent) Init();
-        else {
-            transform.LookAt(player);
-            agent.SetDestination(player.position);
-        }
+        transform.LookAt(ManagePlayer.player);
+        if (agent) {
+            if (!script.isGoingToDie) agent.SetDestination(ManagePlayer.player.position);
+            else agent.SetDestination(transform.position);
+        } else Init();
     }
 
 }

@@ -19,6 +19,6 @@ public class Movement : MonoBehaviour
     void FixedUpdate() {
         var forwardMovement = (transform.forward * currentDirection.z).normalized;
         var sideMovement = (transform.right * currentDirection.x).normalized;
-        rb.AddForce((forwardMovement + sideMovement).Restricted(false,true).normalized * Time.fixedDeltaTime * movementForce, ForceMode.VelocityChange);
+        if(!ManagePlayer.isLocked)rb.AddForce((forwardMovement + sideMovement).Restricted(false,true).normalized * Time.fixedDeltaTime * movementForce, ForceMode.VelocityChange);
     }
 }

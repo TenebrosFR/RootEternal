@@ -135,7 +135,7 @@ MonoBehaviour:
   PlayerBody: {fileID: 5410420507893341788}
   rb: {fileID: 5410420507893341781}
   cam: {fileID: 5410420507044619564}
-  sensivity: 9
+  sensivity: 6
   maxY: 90
   minY: -90
   rotation: {x: 0, y: 0, z: 0, w: 1}
@@ -198,22 +198,6 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 7597b70e-440d-4ec9-afae-d3e09ba27a8c
-    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1cea0846-252d-4817-817d-c1d83ff0dad9
-    m_ActionName: Player/Hit[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1fe673fa-8dfe-409a-a896-a51c9e59289b
-    m_ActionName: Player/Interact[/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3df82197-4e5f-4f15-a40d-318d6eb92975
-    m_ActionName: Player/GloryKill[/Keyboard/f]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5410420507044619561}
         m_TargetAssemblyTypeName: OrbitalControl, Assembly-CSharp
@@ -245,6 +229,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 801e06e0-6793-4d85-8840-8449c9adc324
     m_ActionName: Player/Mouse Y[/Mouse/delta/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aabf320c-a372-493a-9ae0-7e510a400668
+    m_ActionName: Player/Movement[/Keyboard/a,/Keyboard/d,/Keyboard/w,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a5cd20ed-4ca4-4998-9d7d-89b24ddd1e16
+    m_ActionName: Player/Hit[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cdc0ad94-46a2-4244-bda0-16feef6e3ac0
+    m_ActionName: Player/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ee398355-7438-4153-8321-529405bd8b2c
+    m_ActionName: Player/GloryKill[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3873d7d0f321f84e91ab066546b1cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRigidbody: {fileID: 0}
+  playerRigidbody: {fileID: 5410420507893341781}
 --- !u!114 &5410420507893341787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +419,7 @@ MonoBehaviour:
     m_Bits: 1024
   cam: {fileID: 5410420507044619564}
   Distance: 10
+  col: {fileID: 2858230454019875237}
 --- !u!114 &5410420507893341780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,6 +529,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2038433468347799922}
     m_Modifications:
+    - target: {fileID: 2376786033842119465, guid: f0afb4e91335dfe448e11922a509522e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376786033842119467, guid: f0afb4e91335dfe448e11922a509522e, type: 3}
+      propertyPath: equip
+      value: 
+      objectReference: {fileID: 5129767901799455667}
+    - target: {fileID: 2376786033842119467, guid: f0afb4e91335dfe448e11922a509522e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2858230454019875236}
     - target: {fileID: 2376786033842119470, guid: f0afb4e91335dfe448e11922a509522e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -581,6 +594,16 @@ PrefabInstance:
 --- !u!4 &2858230454019875234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2376786033842119470, guid: f0afb4e91335dfe448e11922a509522e, type: 3}
+  m_PrefabInstance: {fileID: 528736700353610380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2858230454019875236 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2376786033842119464, guid: f0afb4e91335dfe448e11922a509522e, type: 3}
+  m_PrefabInstance: {fileID: 528736700353610380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2858230454019875237 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 2376786033842119465, guid: f0afb4e91335dfe448e11922a509522e, type: 3}
   m_PrefabInstance: {fileID: 528736700353610380}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2858230454019875239 stripped
