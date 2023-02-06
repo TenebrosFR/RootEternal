@@ -1193,7 +1193,8 @@ MonoBehaviour:
   totalEnemy2Killed: 0
   totalEnemy3Killed: 0
   totalEnemy4Killed: 0
-  waveNumber: 5
+  waveNumber: 0
+  totalEnemyCount: 0
 --- !u!4 &1733446833
 Transform:
   m_ObjectHideFlags: 0
