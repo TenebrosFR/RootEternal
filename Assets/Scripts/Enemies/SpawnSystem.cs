@@ -61,8 +61,8 @@ public class SpawnSystem : MonoBehaviour
     public int totalEnemy4Killed;
     
     [Header("Stats:")]
-    private int enemyNumber;
-    public int waveNumber = 5;
+    public int waveNumber;
+    public int totalEnemyCount;
     
     private Boolean _waveOne = true;
     private Boolean _waveTwo = false;
@@ -102,27 +102,26 @@ public class SpawnSystem : MonoBehaviour
             }
             
         }
-        for(var i =0;i<fastRootL.Count;i++)
-        {
-            if (!fastRootL[i])
-            {
-                fastRootL.Remove(fastRootL[i]);
-                totalEnemy3Killed += 1;
-            }
-            
-        }
         for(var i =0;i<rangeRootL.Count;i++)
         {
             if (!rangeRootL[i])
             {
                 rangeRootL.Remove(rangeRootL[i]);
+                totalEnemy3Killed += 1;
+            }
+            
+        }
+        for(var i =0;i<fastRootL.Count;i++)
+        {
+            if (!fastRootL[i])
+            {
+                fastRootL.Remove(fastRootL[i]);
                 totalEnemy4Killed += 1;
             }
             
         }
-
         totalEnemyKilled = totalEnemy1Killed + totalEnemy2Killed + totalEnemy3Killed + totalEnemy4Killed;
-        
+        totalEnemyCount = totalEnemyKilled;
         /* ---   SYSTEM WAVES ----*/
         
         if (_waveOne)
@@ -137,8 +136,7 @@ public class SpawnSystem : MonoBehaviour
         }
         if (_waveTwo)
         {
-
-            if (totalEnemyKilled > 19 && totalEnemy2Killed == 5)
+            if (totalEnemyKilled > 11 && totalEnemy2Killed == 2)
             {
                 _waveTwo = false;
                 Debug.Log("Start Wave 3");
@@ -148,8 +146,7 @@ public class SpawnSystem : MonoBehaviour
         }
         if (_waveThree)
         {
-
-            if (totalEnemyKilled > 49 && totalEnemy3Killed == 5)
+            if (totalEnemyKilled > 28 && totalEnemy3Killed == 5)
             {
                 _waveThree = false;
                 Debug.Log("Start Wave 4");
@@ -159,9 +156,9 @@ public class SpawnSystem : MonoBehaviour
         }
         if (_waveFour)
         {
-
-            if (totalEnemyKilled > 89 && totalEnemy4Killed == 5)
+            if (totalEnemyKilled > 42 && totalEnemy4Killed == 2)
             {
+  
                 _waveFour = false;
                 Debug.Log("Start Wave 5");
                 _waveFive = true;
@@ -170,24 +167,20 @@ public class SpawnSystem : MonoBehaviour
         }
         if (_waveFive)
         {
-            if (totalEnemyKilled == 140)
+            if (totalEnemyKilled == 59)
             {
                 _waveFive = false;
                 Debug.Log("Start Wave 5");
                 Debug.Log("Be Careful, Harder Waves !");
                 _nextWave = true;
-                enemyNumber = totalEnemyKilled;
                 StartCoroutine(EnemyDrop());
             }
         }
         if (_nextWave)
         {
-            waveNumber += 1;
-            if (totalEnemyKilled > enemyNumber - 5)
+            if (totalEnemyKilled > totalEnemyCount - 5)
             {
                 Debug.Log("Start Wave " + waveNumber);
-                
-                enemyNumber = totalEnemyKilled;
                 StartCoroutine(EnemyDrop());
             }
         }
@@ -195,6 +188,8 @@ public class SpawnSystem : MonoBehaviour
     
     IEnumerator EnemyDrop()
     {
+        waveNumber += 1;
+
         /*  ----------------   WAVE ONE  -------------------*/
         
         if (_waveOne)
@@ -207,14 +202,10 @@ public class SpawnSystem : MonoBehaviour
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                    if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         tinyRootL.Add(Instantiate(simpleRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
@@ -234,14 +225,10 @@ public class SpawnSystem : MonoBehaviour
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                    if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         tinyRootL.Add(Instantiate(simpleRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
@@ -258,14 +245,10 @@ public class SpawnSystem : MonoBehaviour
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                    if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         bigRootL.Add(Instantiate(bigRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
@@ -284,47 +267,19 @@ public class SpawnSystem : MonoBehaviour
         {
             while (enemy3Count < enemy3Number)
             {
+     
                 bool objectSpawned = false;
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                    if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         tinyRootL.Add(Instantiate(simpleRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
                         enemy3Count += 1;
-                        objectSpawned = true;
-                    }
-
-                }
-            }
-
-            while (enemyRange3Count < enemyRange3Number)
-            {
-                bool objectSpawned = false;
-                while (!objectSpawned)
-                {
-
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
-
-                    if ((objectPosition - transform.position).magnitude < 40 ||
-                        Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        rangeRootL.Add(Instantiate(rangeRoot, objectPosition, Quaternion.identity));
-                        yield return new WaitForSeconds(0.1f);
-                        enemyRange3Count += 1;
                         objectSpawned = true;
                     }
 
@@ -337,16 +292,31 @@ public class SpawnSystem : MonoBehaviour
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                    if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         bigRootL.Add(Instantiate(bigRoot, objectPosition, Quaternion.identity));
+                        yield return new WaitForSeconds(0.1f);
+                        enemyBig3Count += 1;
+                        objectSpawned = true;
+                    }
+
+                }
+            }
+            
+            while (enemyRange3Count < enemyRange3Number)
+            {
+                bool objectSpawned = false;
+                while (!objectSpawned)
+                {
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
+
+                    if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
+                    {
+                        rangeRootL.Add(Instantiate(rangeRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
                         enemyRange3Count += 1;
                         objectSpawned = true;
@@ -354,6 +324,7 @@ public class SpawnSystem : MonoBehaviour
 
                 }
             }
+            
         }
             
         /*  ----------------   WAVE FOUR  -------------------*/
@@ -366,18 +337,14 @@ public class SpawnSystem : MonoBehaviour
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                    if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         tinyRootL.Add(Instantiate(simpleRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
-                        enemy3Count += 1;
+                        enemy4Count += 1;
                         objectSpawned = true;
                     }
 
@@ -390,18 +357,14 @@ public class SpawnSystem : MonoBehaviour
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                    if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         fastRootL.Add(Instantiate(fastRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
-                        enemyRange3Count += 1;
+                        enemyFast4Count += 1;
                         objectSpawned = true;
                     }
 
@@ -413,18 +376,14 @@ public class SpawnSystem : MonoBehaviour
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                    if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         bigRootL.Add(Instantiate(bigRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
-                        enemyRange3Count += 1;
+                        enemyBig4Count += 1;
                         objectSpawned = true;
                     }
 
@@ -442,18 +401,14 @@ public class SpawnSystem : MonoBehaviour
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                    if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         tinyRootL.Add(Instantiate(simpleRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
-                        enemy3Count += 1;
+                        enemy5Count += 1;
                         objectSpawned = true;
                     }
 
@@ -466,18 +421,14 @@ public class SpawnSystem : MonoBehaviour
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                    if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         rangeRootL.Add(Instantiate(rangeRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
-                        enemyRange3Count += 1;
+                        enemyRange5Count += 1;
                         objectSpawned = true;
                     }
 
@@ -489,18 +440,14 @@ public class SpawnSystem : MonoBehaviour
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                    if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         bigRootL.Add(Instantiate(bigRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
-                        enemyRange3Count += 1;
+                        enemyBig5Count += 1;
                         objectSpawned = true;
                     }
 
@@ -513,18 +460,14 @@ public class SpawnSystem : MonoBehaviour
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                    if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         fastRootL.Add(Instantiate(fastRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
-                        enemyRange3Count += 1;
+                        enemyFast5Count += 1;
                         objectSpawned = true;
                     }
 
@@ -533,44 +476,45 @@ public class SpawnSystem : MonoBehaviour
         }
         
          /*  ----------------   WAVE N  -------------------*/
-            
+            Debug.Log("Hello");
         if (_nextWave)
         {
-            enemyNNumber = Random.Range(10, 15);
-            enemyBigNNumber = Random.Range(10, 25);
+            /*enemyNNumber = Random.Range(10, 15);
+            enemyBigNNumber = Random.Range(2, 10);
 
-            if (enemyBigNNumber < 15)
+            if (enemyBigNNumber < 5)
             {
-                enemyRangeNNumber = Random.Range(15, 25);
+                enemyRangeNNumber = Random.Range(5, 7);
             } else {
-                enemyRangeNNumber = Random.Range(10, 15);
+                enemyRangeNNumber = Random.Range(2, 5);
             }
             
-            if (enemyRangeNNumber < 15)
+            if (enemyRangeNNumber < 5)
             {
-                enemyFastNNumber = Random.Range(15, 25);
+                enemyFastNNumber = Random.Range(5, 7);
             } else {
-                enemyFastNNumber = Random.Range(10, 15);
-            }
-
+                enemyFastNNumber = Random.Range(2, 5);
+            }*/
+            enemyNNumber = Random.Range(1, 2);
+            enemyBigNNumber = Random.Range(1, 2);
+            enemyRangeNNumber = Random.Range(1, 2);
+            enemyFastNNumber = Random.Range(1, 2);
+            Debug.Log(enemyNCount + " " + enemyNNumber);
             while (enemyNCount < enemyNNumber)
             {
                 bool objectSpawned = false;
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                     if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         tinyRootL.Add(Instantiate(simpleRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
                         enemyNCount += 1;
+                        totalEnemyCount += 1;
                         objectSpawned = true;
                     }
 
@@ -583,18 +527,15 @@ public class SpawnSystem : MonoBehaviour
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                     if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         rangeRootL.Add(Instantiate(rangeRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
                         enemyRangeNCount += 1;
+                        totalEnemyCount += 1;
                         objectSpawned = true;
                     }
 
@@ -606,18 +547,15 @@ public class SpawnSystem : MonoBehaviour
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                     if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         bigRootL.Add(Instantiate(bigRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
-                        enemyRangeNCount += 1;
+                        enemyBigNCount += 1;
+                        totalEnemyCount += 1;
                         objectSpawned = true;
                     }
 
@@ -630,18 +568,15 @@ public class SpawnSystem : MonoBehaviour
                 while (!objectSpawned)
                 {
 
-                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
-                        transform.position.z + Random.Range(-50, 50));
+                    Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-40, 40), 0,
+                        transform.position.z + Random.Range(-40, 40));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
+                     if ((objectPosition - transform.position).magnitude > 40 && !Physics.CheckSphere(objectPosition, 0))
                     {
                         fastRootL.Add(Instantiate(fastRoot, objectPosition, Quaternion.identity));
                         yield return new WaitForSeconds(0.1f);
-                        enemyRangeNCount += 1;
+                        enemyFastNCount += 1;
+                        totalEnemyCount += 1;
                         objectSpawned = true;
                     }
 
