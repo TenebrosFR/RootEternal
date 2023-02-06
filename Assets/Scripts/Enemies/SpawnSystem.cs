@@ -138,7 +138,7 @@ public class SpawnSystem : MonoBehaviour
         if (_waveTwo)
         {
 
-            if (totalEnemyKilled > 20 && totalEnemy2Killed == 5)
+            if (totalEnemyKilled > 19 && totalEnemy2Killed == 5)
             {
                 _waveTwo = false;
                 Debug.Log("Start Wave 3");
@@ -149,7 +149,7 @@ public class SpawnSystem : MonoBehaviour
         if (_waveThree)
         {
 
-            if (totalEnemyKilled > 40 && totalEnemy3Killed == 5)
+            if (totalEnemyKilled > 49 && totalEnemy3Killed == 5)
             {
                 _waveThree = false;
                 Debug.Log("Start Wave 4");
@@ -160,7 +160,7 @@ public class SpawnSystem : MonoBehaviour
         if (_waveFour)
         {
 
-            if (totalEnemyKilled > 47 && totalEnemy4Killed == 5)
+            if (totalEnemyKilled > 89 && totalEnemy4Killed == 5)
             {
                 _waveFour = false;
                 Debug.Log("Start Wave 5");
@@ -170,10 +170,11 @@ public class SpawnSystem : MonoBehaviour
         }
         if (_waveFive)
         {
-            if (totalEnemyKilled > 77)
+            if (totalEnemyKilled == 140)
             {
                 _waveFive = false;
                 Debug.Log("Start Wave 5");
+                Debug.Log("Be Careful, Harder Waves !");
                 _nextWave = true;
                 enemyNumber = totalEnemyKilled;
                 StartCoroutine(EnemyDrop());
