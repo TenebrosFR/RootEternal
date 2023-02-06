@@ -38,7 +38,7 @@ Material:
     - _QueueOffset: 0
     - _Rotate: 0
     - _RotateOmbrage: 0
-    - _Scale: 1.03
+    - _Scale: 1.01
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

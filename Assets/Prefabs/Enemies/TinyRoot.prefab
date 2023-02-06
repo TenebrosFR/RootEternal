@@ -206,6 +206,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2908730674384220941, guid: 11a4f8277f0989347b9a567499701dd0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8fed812c19ff65d40b2563dc9f065b55, type: 2}
     - target: {fileID: 5534574492580900017, guid: 11a4f8277f0989347b9a567499701dd0, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -292,6 +296,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: -3406157381019792130, guid: cb0d7e16c412dbd4daed67f478b9648d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8fed812c19ff65d40b2563dc9f065b55, type: 2}
     - target: {fileID: 919132149155446097, guid: cb0d7e16c412dbd4daed67f478b9648d, type: 3}
       propertyPath: m_Name
       value: tiny_root_lowpoly_L
