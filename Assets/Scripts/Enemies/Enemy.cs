@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.VFX;
 using utils;
+using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] GameObject explosion;
     [SerializeField] Rigidbody rb;
-    [SerializeField] LayerMask WeaponHolder;
+    [SerializeField] LayerMask Player;
     [SerializeField] public int damage;
     public bool isGoingToDie = false;
     // Start is called before the first frame update
@@ -24,8 +24,9 @@ public class Enemy : MonoBehaviour
     public void StartGloryKill() {
         animator.SetTrigger("GloryKill");
         isGoingToDie = true;
-    }
+    }   
     private void FixedUpdate() {
+        transform.rotation = Quaternion.LookRotation(ManagePlayer.player.position.UpdateAxis(transform.position.y, VectorAxis.Y) - transform.position, transform.up);
         if (!isGoingToDie) return;
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("RootExplode")) {
             ManagePlayer.ChangeLockState(false);
@@ -36,7 +37,7 @@ public class Enemy : MonoBehaviour
     }   
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.layer == Mathf.Log(WeaponHolder.value, 2)) {
+        if (other.gameObject.layer == Mathf.Log(Player.value, 2)) {
             Health.instance.TakeDamage(damage);
         }
     }

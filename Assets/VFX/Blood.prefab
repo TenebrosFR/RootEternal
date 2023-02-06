@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4558641386236881448}
   - component: {fileID: 4558641386236881449}
-  - component: {fileID: 4057506439241316485}
   - component: {fileID: 4558641386236881450}
   - component: {fileID: 5645470729750204063}
   - component: {fileID: -3614014677898200818}
@@ -82,21 +81,6 @@ VisualEffect:
       - m_Value: 0
         m_Name: Loop
         m_Overridden: 1
---- !u!114 &4057506439241316485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4558641386236881451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34b0463a52c649e42a5fade4b049a471, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distanceProperty:
-    m_Name: 
-  target: {fileID: 0}
 --- !u!73398921 &4558641386236881450
 VFXRenderer:
   serializedVersion: 1
@@ -163,6 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings:
-  - {fileID: 4057506439241316485}
+  m_Bindings: []
   m_VisualEffect: {fileID: 4558641386236881449}

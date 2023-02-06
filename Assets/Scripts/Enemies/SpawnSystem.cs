@@ -64,17 +64,17 @@ public class SpawnSystem : MonoBehaviour
     private int enemyNumber;
     public int waveNumber = 5;
     
-    private Boolean _waveOne = true;
-    private Boolean _waveTwo = false;
-    private Boolean _waveThree = false;
-    private Boolean _waveFour = false;
-    private Boolean _waveFive = false;
-    private Boolean _nextWave = false;
+    public Boolean _waveOne = true;
+    public Boolean _waveTwo = false;
+    public Boolean _waveThree = false;
+    public Boolean _waveFour = false;
+    public Boolean _waveFive = false;
+    public Boolean _nextWave = false;
 
-    private List<GameObject> tinyRootL = new List<GameObject>();
-    private List<GameObject> bigRootL = new List<GameObject>();
-    private List<GameObject> fastRootL = new List<GameObject>();
-    private List<GameObject> rangeRootL = new List<GameObject>();
+    public List<GameObject> tinyRootL = new List<GameObject>();
+    public List<GameObject> bigRootL = new List<GameObject>();
+    public List<GameObject> fastRootL = new List<GameObject>();
+    public List<GameObject> rangeRootL = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -257,21 +257,19 @@ public class SpawnSystem : MonoBehaviour
                 bool objectSpawned = false;
                 while (!objectSpawned)
                 {
-
                     Vector3 objectPosition = new Vector3(transform.position.x + Random.Range(-50, 50), 0,
                         transform.position.z + Random.Range(-50, 50));
 
-                    if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        bigRootL.Add(Instantiate(bigRoot, objectPosition, Quaternion.identity));
-                        yield return new WaitForSeconds(0.1f);
-                        enemyBig2Count += 1;
-                        objectSpawned = true;
-                    }
+                    //if ((objectPosition - transform.position).magnitude < 40 || Physics.CheckSphere(objectPosition, 0))
+                    //{
+                    //    continue;
+                    //}
+                    //else
+                    //{
+                    //    bigRootL.Add(Instantiate(bigRoot, objectPosition, Quaternion.identity));
+                    //    enemyBig2Count += 1;
+                    //    objectSpawned = true;
+                    //}
 
                 }
             }
