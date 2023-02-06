@@ -11,7 +11,6 @@ public class ChasingAIScript : MonoBehaviour {
     }
 
     private void Update() {
-        transform.LookAt(ManagePlayer.player);
         if (!isStatic && agent) {
             if(animator) animator.SetFloat("Velocity", agent.velocity.magnitude);
             if (!script.isGoingToDie) agent.SetDestination(ManagePlayer.player.position);

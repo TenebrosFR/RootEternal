@@ -31,14 +31,11 @@ public class AttackingAIScript : MonoBehaviour
     }
 
     private void ChasePlayer () {
-            transform.LookAt(player);
             agent.SetDestination(player.position);
     }
 
     private void AttackPlayer () {
         agent.SetDestination(transform.position);
-
-        transform.LookAt(player);
 
         if (!alreadyAttacked) {
 

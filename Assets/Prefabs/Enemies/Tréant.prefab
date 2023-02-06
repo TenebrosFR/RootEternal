@@ -53,7 +53,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1512175669011872648
 MonoBehaviour:
@@ -111,6 +111,9 @@ MonoBehaviour:
   animator: {fileID: 7914108267569019651}
   explosion: {fileID: 4558641386236881451, guid: bbd6b664d77a4e341961dfdbaca6e706, type: 3}
   rb: {fileID: 8539803491397242227}
+  Player:
+    serializedVersion: 2
+    m_Bits: 8
   damage: 2
   isGoingToDie: 0
 --- !u!95 &7914108267569019651

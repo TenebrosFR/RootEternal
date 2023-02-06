@@ -15,6 +15,12 @@ namespace utils {
         W
     }
     public static partial class StaticMethod {
+        #region transform
+        public static Transform UpdatePosition(this Transform reference,float value,VectorAxis axis) {
+            reference.position = reference.position.UpdateAxis(value, axis);
+            return reference;
+        }
+        #endregion
         #region Vector2
         public static Vector2 UpdateAxis(this Vector2 movement, float newValue, VectorAxis axis, System.Exception error) {
             if (axis != VectorAxis.Z) return new Vector2(axis == VectorAxis.X ? newValue : movement.x, axis == VectorAxis.Y ? newValue : movement.y);
