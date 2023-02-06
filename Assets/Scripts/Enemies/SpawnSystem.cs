@@ -190,6 +190,7 @@ public class SpawnSystem : MonoBehaviour
     IEnumerator EnemyDrop()
     {
         waveNumber += 1;
+        Score.instance.WaveScreen(waveNumber);
 
         /*  ----------------   WAVE ONE  -------------------*/
         

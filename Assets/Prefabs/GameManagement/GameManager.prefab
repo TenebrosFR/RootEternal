@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7170231446273726302}
   - component: {fileID: 6101831918992132079}
+  - component: {fileID: 1765244956}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -77,3 +78,21 @@ MonoBehaviour:
   fill: {fileID: 0}
   hpNum: {fileID: 0}
   restartScreen: {fileID: 0}
+--- !u!114 &1765244956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7170231446273726305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d326cb3e7b19b499a3ce847a54c719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreText: {fileID: 0}
+  scoreAddText: {fileID: 0}
+  waveText: {fileID: 0}
+  waveAnim: {fileID: 0}
+  scoreAnim: {fileID: 0}

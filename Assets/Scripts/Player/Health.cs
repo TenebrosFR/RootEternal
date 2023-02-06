@@ -38,7 +38,7 @@ public class Health : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-
+        _gameManager.SetHealth(currentHealth);
         Debug.Log("Vie actuelle:" + currentHealth);
     }
 }
