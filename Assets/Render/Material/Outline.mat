@@ -36,6 +36,8 @@ Material:
     m_Floats:
     - _QueueControl: 1
     - _QueueOffset: 0
+    - _Rotate: 0
+    - _RotateOmbrage: 0
     - _Scale: 1.03
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 0}
