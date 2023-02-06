@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] GameObject explosion;
     [SerializeField] Rigidbody rb;
+    [SerializeField] LayerMask WeaponHolder;
     [SerializeField] public int damage;
     public bool isGoingToDie = false;
     // Start is called before the first frame update
@@ -32,5 +33,11 @@ public class Enemy : MonoBehaviour
             Instantiate(explosion, transform.position.UpdateAxis(transform.position.y + 0.75f, VectorAxis.Y), explosion.transform.rotation * transform.rotation);
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("isDead")) Destroy(gameObject);
+    }   
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.layer == Mathf.Log(WeaponHolder.value, 2)) {
+            Health.instance.TakeDamage(damage);
+        }
     }
 }

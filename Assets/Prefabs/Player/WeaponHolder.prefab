@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2376786033842119465}
   - component: {fileID: 2376786033842119464}
   - component: {fileID: 2376786033842119467}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ MeshCollider:
   m_GameObject: {fileID: 2376786033842119474}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -134,3 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 2376786033842119464}
   damage: 10
+  equip: {fileID: 0}
+  animator: {fileID: 2376786033842119464}
+  meshFilter: {fileID: 0}
+  weaponsMesh: []
