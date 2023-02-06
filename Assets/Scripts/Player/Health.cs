@@ -33,6 +33,16 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0) Death();
     }
 
+    public void TakeHeal(int heal)
+    {
+        currentHealth += heal;
+        if(currentHealth > maxHealth)
+        {
+            currentHealth= maxHealth;
+        }
+        Debug.Log("Vie actuelle:" + currentHealth);
+    }
+
     void Death()
     {
         restartScreen.enabled = true;
