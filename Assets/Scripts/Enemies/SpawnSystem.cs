@@ -34,8 +34,13 @@ public class SpawnSystem : MonoBehaviour
     }
     public void LaunchWave(int current) {
         int[] currentWave;
-        if (current < waveMonsters.Length) currentWave = infNum;
-        else currentWave = waveMonsters[current].numbers;
+        if (current < waveMonsters.Length) currentWave = waveMonsters[current].numbers;
+        else {
+            currentWave = infNum;
+            for(var i = 0; i< currentWave.Length;) {
+
+            }
+        }
         for (var monsterIndex = 0; monsterIndex < currentWave.Length; monsterIndex++) {
             for (var newMonster = 0; newMonster < currentWave[monsterIndex]; newMonster++) {
                 Vector3 newPosition;
