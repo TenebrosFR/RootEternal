@@ -72,9 +72,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hp: 10
+  collectiblePrefab: {fileID: 8932603424729700765, guid: 2cef38c81ebfa99488400ee3ad5ef7af, type: 3}
   animator: {fileID: 4949872444975925418}
   explosion: {fileID: 4558641386236881451, guid: bbd6b664d77a4e341961dfdbaca6e706, type: 3}
   rb: {fileID: 4949872444975925420}
+  WeaponHolder:
+    serializedVersion: 2
+    m_Bits: 0
   damage: 1
   isGoingToDie: 0
 --- !u!54 &4949872444975925420
