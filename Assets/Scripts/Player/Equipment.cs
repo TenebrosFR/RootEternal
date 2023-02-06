@@ -10,6 +10,10 @@ public class Equipment : MonoBehaviour
     [SerializeField] float Distance;
     [SerializeField] public Collider col;
 
+    private void Start() {
+        weaponHolder.weapon.SetInteger("ID",1);
+        weaponHolder.SetWeaponMesh(1);
+    }
     public void OnInteract(InputAction.CallbackContext context) {
         if (!context.performed) return;
         TryEquip();
@@ -19,8 +23,8 @@ public class Equipment : MonoBehaviour
         Physics.Raycast(ray.origin, ray.direction, out RaycastHit firstHit, Distance);
         if (firstHit.transform && firstHit.transform.gameObject.layer == Mathf.Log(weaponLayer.value, 2)) {
             weaponHolder.weapon.SetInteger("ID", firstHit.transform.GetComponent<Weapon>().ID);
-            Destroy(firstHit.transform.gameObject);
             weaponHolder.SetWeaponMesh(firstHit.transform.GetComponent<Weapon>().ID);
+            Destroy(firstHit.transform.gameObject);
         }
     }
     public void OnHit(InputAction.CallbackContext context)
