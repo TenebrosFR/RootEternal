@@ -85,13 +85,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97bd62d04b470a42846c729d2e73468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 10
+  collectiblePrefab: {fileID: 8932603424729700765, guid: 2cef38c81ebfa99488400ee3ad5ef7af, type: 3}
   animator: {fileID: 4949872444975925418}
   explosion: {fileID: 4558641386236881451, guid: bbd6b664d77a4e341961dfdbaca6e706, type: 3}
   rb: {fileID: 4949872444975925420}
   Player:
     serializedVersion: 2
     m_Bits: 8
+  damageInterval: 1
+  Hp: 10
   damage: 1
   isGoingToDie: 0
 --- !u!136 &3439552722312462069
