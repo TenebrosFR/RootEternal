@@ -28,6 +28,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _AlphaMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -89,7 +93,7 @@ Material:
     - Brightness_Rim: 2
     - Rim_Power: 5
     - Toon_Ramp_Offset: 0.5
-    - Toon_Ramp_Smoothness: 0
+    - Toon_Ramp_Smoothness: 0.199
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
