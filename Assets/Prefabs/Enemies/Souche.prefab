@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5613468437110904211}
   - component: {fileID: 6409342183273170286}
   - component: {fileID: 2970869719865411064}
+  - component: {fileID: -254244868092468996}
   m_Layer: 10
   m_Name: Souche
   m_TagString: Ennemy
@@ -102,14 +103,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97bd62d04b470a42846c729d2e73468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 40
+  collectiblePrefab: {fileID: 0}
   animator: {fileID: 0}
   explosion: {fileID: 4558641386236881451, guid: bbd6b664d77a4e341961dfdbaca6e706, type: 3}
   rb: {fileID: 1632639189270085130}
   Player:
     serializedVersion: 2
     m_Bits: 8
+  damageInterval: 1
+  Hp: 40
   damage: 3
+  pts: 2
   isGoingToDie: 0
 --- !u!135 &2970869719865411064
 SphereCollider:
@@ -124,6 +128,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-254244868092468996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4854178387308114953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c86d7b6d27f1e948a0d70da2d8dbd4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 7245247140769568790}
 --- !u!1001 &7015816763795366024
 PrefabInstance:
   m_ObjectHideFlags: 0

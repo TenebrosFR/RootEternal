@@ -12,12 +12,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] float damageInterval = 1f;
     [SerializeField] public int Hp;
     [SerializeField] public int damage;
+    [SerializeField] public int pts;
     public bool isGoingToDie = false;
     private float hitTime;
     // Start is called before the first frame update
     public void TakeDammage(int _damage) {
         if (Hp - _damage <= 0) {
             Destroy(gameObject);
+            Score.instance.AjoutPts(pts);
         }
         else {
             Hp -= _damage;
@@ -40,6 +42,8 @@ public class Enemy : MonoBehaviour
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("isDead"))
         {
             Destroy(gameObject);
+            pts = pts * 2;
+            Score.instance.AjoutPts(pts);
             GameObject collectible = Instantiate(collectiblePrefab);
             collectible.transform.position = transform.position;
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using utils;
 
 public class DestroyProjectile : MonoBehaviour
 {
@@ -13,8 +14,13 @@ public class DestroyProjectile : MonoBehaviour
         StartPos = gameObject.transform.position;
     }
 
-    private void Update() {
-        if (Vector3.Distance(StartPos, gameObject.transform.position) >= 0.75*range.transform.localScale.x ) {
+    private void FixedUpdate() {
+
+        // transform.position = transform.position + (transform.localScale - newScale) / 2;
+        transform.localScale = transform.localScale.UpdateAxis(transform.localScale.z + Time.deltaTime, VectorAxis.Z);
+        transform.position += transform.forward * (Time.deltaTime) / (1.25f + Time.deltaTime);
+
+        if (transform.localScale.z >= 0.5*range.GetComponent<BoxCollider>().size.x ) {
             Destroy(gameObject);
         }
     }

@@ -1,7 +1,8 @@
-using System.Collections;
+  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using utils;
 
 public class AttackingAIScript : MonoBehaviour
 {
@@ -12,8 +13,9 @@ public class AttackingAIScript : MonoBehaviour
     bool playerInAttackRange;
 
     [SerializeField] LayerMask PlayerMask;
-
     [SerializeField] GameObject projectiles;
+
+    GameObject projectileAlive;
 
     bool alreadyAttacked;
 
@@ -24,10 +26,10 @@ public class AttackingAIScript : MonoBehaviour
 
     private void Update() {
         if (player && agent) {
-            if (playerInAttackRange) AttackPlayer();
-            if (!playerInAttackRange) ChasePlayer();
-            else Init();
+            if (playerInAttackRange && !projectileAlive) AttackPlayer();
+            if (!playerInAttackRange && !projectileAlive) ChasePlayer();
         }
+        else Init();
     }
 
     private void ChasePlayer () {
@@ -38,9 +40,7 @@ public class AttackingAIScript : MonoBehaviour
         agent.SetDestination(transform.position);
 
         if (!alreadyAttacked) {
-
-            Rigidbody rb  = Instantiate(projectiles, transform.position + transform.forward, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 8f, ForceMode.Impulse);
+            projectileAlive = Instantiate(projectiles, (transform.position + transform.forward).UpdateAxis(ManagePlayer.player.position.y * 2, VectorAxis.Y), Quaternion.LookRotation(new Vector3(ManagePlayer.player.position.x, ManagePlayer.player.position.y - 1, ManagePlayer.player.position.z) - transform.position));
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -54,7 +54,11 @@ public class AttackingAIScript : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.layer == Mathf.Log(PlayerMask.value, 2)) {
             playerInAttackRange = true;
-        } else {
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.gameObject.layer == Mathf.Log(PlayerMask.value, 2)) {
             playerInAttackRange = false;
         }
     }
