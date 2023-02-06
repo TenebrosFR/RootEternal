@@ -4,14 +4,16 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] public int Hp;
     [SerializeField] GameObject collectiblePrefab;
     [SerializeField] Animator animator;
     [SerializeField] GameObject explosion;
     [SerializeField] Rigidbody rb;
     [SerializeField] LayerMask Player;
+    [SerializeField] float damageInterval = 1f;
+    [SerializeField] public int Hp;
     [SerializeField] public int damage;
     public bool isGoingToDie = false;
+    private float hitTime;
     // Start is called before the first frame update
     public void TakeDammage(int _damage) {
         if (Hp - _damage <= 0) {
@@ -39,10 +41,16 @@ public class Enemy : MonoBehaviour
             collectible.transform.position = position;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("isDead")) Destroy(gameObject);
-    }   
-
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.layer == Mathf.Log(Player.value, 2)) {
+    }
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.layer == Mathf.Log(Player.value, 2)) {
+            hitTime = Time.time;
+            Health.instance.TakeDamage(damage);
+        }
+    }
+    private void OnCollisionStay(Collision collision) {
+        if (collision.gameObject.layer == Mathf.Log(Player.value, 2) && Time.time > hitTime + damageInterval) {
+            hitTime = Time.time;
             Health.instance.TakeDamage(damage);
         }
     }
