@@ -95,6 +95,7 @@ MonoBehaviour:
   damageInterval: 1
   Hp: 10
   damage: 1
+  pts: 1
   isGoingToDie: 0
 --- !u!136 &3439552722312462069
 CapsuleCollider:

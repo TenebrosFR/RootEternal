@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8125253573302094734}
   - component: {fileID: 7914108267569019651}
   - component: {fileID: 7915497052517814658}
+  - component: {fileID: -3387250335295671169}
   m_Layer: 10
   m_Name: "Big Tr\xE9ant"
   m_TagString: Ennemy
@@ -105,14 +106,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97bd62d04b470a42846c729d2e73468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 30
+  collectiblePrefab: {fileID: 0}
   animator: {fileID: 7914108267569019651}
   explosion: {fileID: 4558641386236881451, guid: bbd6b664d77a4e341961dfdbaca6e706, type: 3}
   rb: {fileID: 8539803491397242227}
   Player:
     serializedVersion: 2
     m_Bits: 0
+  damageInterval: 1
+  Hp: 30
   damage: 10
+  pts: 4
   isGoingToDie: 0
 --- !u!95 &7914108267569019651
 Animator:
@@ -148,6 +152,19 @@ CapsuleCollider:
   m_Height: 7
   m_Direction: 1
   m_Center: {x: 0, y: 2.5, z: 0}
+--- !u!114 &-3387250335295671169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397538272994527147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c86d7b6d27f1e948a0d70da2d8dbd4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 7842226424870078378}
 --- !u!1001 &971237427086821748
 PrefabInstance:
   m_ObjectHideFlags: 0
