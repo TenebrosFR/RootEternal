@@ -3,13 +3,27 @@ using UnityEngine.AI;
 
 public class Frenesie : MonoBehaviour
 {
-    int charge = 0;
+    int charge;
+    bool isSlowed;
     public static Frenesie instance;
 
     public void JaugeFrenesie(int _damage)
     {
-        charge = charge + _damage;
-        Debug.Log("Chargement de la frenesie: " + charge);
+        if (!isSlowed)
+        {
+            charge = charge + _damage;
+            Debug.Log("Chargement de la frenesie: " + charge);
+        }
+    }
+    public bool LockCharge()
+    {
+        isSlowed = true;
+        return isSlowed;
+    }
+    public bool DelockCharge()
+    {
+        isSlowed = false;
+        return isSlowed;
     }
 
     public bool CheckDamage()

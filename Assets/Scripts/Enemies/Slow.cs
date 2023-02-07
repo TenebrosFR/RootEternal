@@ -17,6 +17,7 @@ public class Slow : MonoBehaviour
 
     public void SlowMode()
     {
+        Frenesie.instance.LockCharge();
         StartCoroutine(SlowCoroutine());
     }
 
@@ -26,6 +27,7 @@ public class Slow : MonoBehaviour
         agent.speed/= 2;
         Debug.Log("SlowMode active");
         yield return new WaitForSeconds(slowDuration);
+        Frenesie.instance.DelockCharge();
         Frenesie.instance.ResetCharge();
         Debug.Log("Fin SlowMode");
         agent.speed *= 2;

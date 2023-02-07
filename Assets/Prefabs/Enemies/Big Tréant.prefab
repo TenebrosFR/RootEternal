@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8125253573302094734}
   - component: {fileID: 7914108267569019651}
   - component: {fileID: 7915497052517814658}
-  - component: {fileID: 1276326814767432592}
   - component: {fileID: -2178652479607283883}
   m_Layer: 10
   m_Name: "Big Tr\xE9ant"
@@ -94,6 +93,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script: {fileID: 8125253573302094734}
   animator: {fileID: 7914108267569019651}
+  player:
+    serializedVersion: 2
+    m_Bits: 0
   isStatic: 0
 --- !u!114 &8125253573302094734
 MonoBehaviour:
@@ -153,18 +155,6 @@ CapsuleCollider:
   m_Height: 7
   m_Direction: 1
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!114 &1276326814767432592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5397538272994527147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c86d7b6d27f1e948a0d70da2d8dbd4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-2178652479607283883
 MonoBehaviour:
   m_ObjectHideFlags: 0
