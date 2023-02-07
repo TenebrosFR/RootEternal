@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             pts = pts * 2;
-            Score.instance.AjoutPts(pts);
+            //Score.instance.AjoutPts(pts);
             GameObject collectible = Instantiate(collectiblePrefab);
             collectible.transform.position = transform.position;
         }

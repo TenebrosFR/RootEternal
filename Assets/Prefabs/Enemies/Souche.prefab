@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5613468437110904211}
   - component: {fileID: 6409342183273170286}
   - component: {fileID: 2970869719865411064}
+  - component: {fileID: -6752057417715908992}
+  - component: {fileID: -3204515529686153917}
   m_Layer: 10
   m_Name: Souche
   m_TagString: Ennemy
@@ -130,6 +132,31 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6752057417715908992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4854178387308114953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c86d7b6d27f1e948a0d70da2d8dbd4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3204515529686153917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4854178387308114953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca95a7fa4183a8b47a6d888b82bba876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 7245247140769568790}
 --- !u!1001 &7015816763795366024
 PrefabInstance:
   m_ObjectHideFlags: 0
