@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,7 +12,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI hpNum;
 
     public GameObject restartScreen;
-    
+    public static GameManager instance;
+    public void Awake() {
+        instance= this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.lockState = CursorLockMode.Locked;
-        SceneManager.LoadScene("Test");
+        SceneManager.LoadScene(0);
     }
     
     public void SetHealth(int health)

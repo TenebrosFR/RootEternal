@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 5613468437110904211}
   - component: {fileID: 6409342183273170286}
   - component: {fileID: 2970869719865411064}
-  - component: {fileID: -254244868092468996}
+  - component: {fileID: -6752057417715908992}
+  - component: {fileID: -3204515529686153917}
   m_Layer: 10
   m_Name: Souche
   m_TagString: Ennemy
@@ -46,10 +47,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4854178387308114953}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 80
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -88,8 +89,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987cbd6f5382ecb489a2bd0afbd39cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  script: {fileID: 0}
+  script: {fileID: 6409342183273170286}
   animator: {fileID: 1600623062615077414}
+  player:
+    serializedVersion: 2
+    m_Bits: 8
   isStatic: 0
 --- !u!114 &6409342183273170286
 MonoBehaviour:
@@ -103,8 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97bd62d04b470a42846c729d2e73468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectiblePrefab: {fileID: 0}
-  animator: {fileID: 0}
+  collectiblePrefab: {fileID: 8932603424729700765, guid: 2cef38c81ebfa99488400ee3ad5ef7af, type: 3}
+  animator: {fileID: 1600623062615077414}
   explosion: {fileID: 4558641386236881451, guid: bbd6b664d77a4e341961dfdbaca6e706, type: 3}
   rb: {fileID: 1632639189270085130}
   Player:
@@ -128,7 +132,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-254244868092468996
+--- !u!114 &-6752057417715908992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,6 +142,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c86d7b6d27f1e948a0d70da2d8dbd4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3204515529686153917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4854178387308114953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca95a7fa4183a8b47a6d888b82bba876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 7245247140769568790}

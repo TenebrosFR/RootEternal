@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     public void TakeDammage(int _damage) {
         if (Hp - _damage <= 0) {
             Destroy(gameObject);
-            Score.instance.AjoutPts(pts);
+            //Score.instance.AjoutPts(pts);
         }
         else {
             Hp -= _damage;
@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             pts = pts * 2;
-            Score.instance.AjoutPts(pts);
+            //Score.instance.AjoutPts(pts);
             GameObject collectible = Instantiate(collectiblePrefab);
             collectible.transform.position = transform.position;
         }
