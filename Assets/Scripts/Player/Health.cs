@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     {
         instance = this;
         currentHealth = maxHealth;
-        _gameManager.SetMaxHealth(maxHealth);
+        //_gameManager.SetMaxHealth(maxHealth);
     }
 
     void Update()
@@ -27,7 +27,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        _gameManager.SetHealth(currentHealth);
+        //_gameManager.SetHealth(currentHealth);
         if (currentHealth <= 0) _gameManager.Death();
     }
 
@@ -38,7 +38,7 @@ public class Health : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        _gameManager.SetHealth(currentHealth);
+        //_gameManager.SetHealth(currentHealth);
         Debug.Log("Vie actuelle:" + currentHealth);
     }
 }

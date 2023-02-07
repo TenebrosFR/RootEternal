@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     public void TakeDammage(int _damage) {
         if (Hp - _damage <= 0) {
             Destroy(gameObject);
-            Score.instance.AjoutPts(pts);
+            //Score.instance.AjoutPts(pts);
         }
         else {
             Hp -= _damage;
