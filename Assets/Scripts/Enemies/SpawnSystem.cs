@@ -37,6 +37,7 @@ public class SpawnSystem : MonoBehaviour
     }
     public void LaunchWave(int current) {
         int[] currentWave;
+        Score.instance.WaveScreen(current + 1);
         if (current < waveMonsters.Length) currentWave = waveMonsters[current].numbers;
         else {
             for (var i = 0; i < infNum.Length; i++) {

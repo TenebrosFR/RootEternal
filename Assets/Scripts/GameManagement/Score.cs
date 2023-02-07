@@ -30,6 +30,7 @@ public class Score : MonoBehaviour
 
     public void WaveScreen(int _wave)
     {
+        Debug.Log("Current wave: " + _wave);
         waveText.text = "Current wave: " + _wave;
         waveAnim.SetTrigger("fadeWave");
     }

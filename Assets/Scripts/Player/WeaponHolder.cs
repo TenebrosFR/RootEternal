@@ -10,6 +10,8 @@ public class WeaponHolder : MonoBehaviour
     //weapon mesh
     [SerializeField] MeshFilter meshFilter;
     [SerializeField] Mesh[] weaponsMesh;
+    [SerializeField] Renderer meshRenderer;
+    [SerializeField] Material[] chainsawMaterials;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +25,10 @@ public class WeaponHolder : MonoBehaviour
     public void SetWeaponMesh(int _index)
     {
         meshFilter.mesh = weaponsMesh[_index];
+        if (_index == 2)
+        {
+            meshRenderer.materials = chainsawMaterials;
+        }
     }
 
     public void PlayAnim()
