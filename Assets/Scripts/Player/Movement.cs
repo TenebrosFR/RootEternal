@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
     [SerializeField] Collider col;
+    [SerializeField] Animator anim;
     [SerializeField] float movementForce = 1;
     Vector3 currentDirection;
     
@@ -20,5 +21,8 @@ public class Movement : MonoBehaviour
         var forwardMovement = (transform.forward * currentDirection.z).normalized;
         var sideMovement = (transform.right * currentDirection.x).normalized;
         if(!ManagePlayer.isLocked)rb.AddForce((forwardMovement + sideMovement).Restricted(false,true).normalized * Time.fixedDeltaTime * movementForce, ForceMode.VelocityChange);
+        if (rb.velocity.magnitude > 1) anim.SetBool("Walk", true);
+        else anim.SetBool("Walk", false);
     }
+
 }
