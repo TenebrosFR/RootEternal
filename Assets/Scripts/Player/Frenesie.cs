@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class Frenesie : MonoBehaviour
 {
-    int charge = 130;
+    int charge = 0;
     public static Frenesie instance;
 
     public void JaugeFrenesie(int _damage)
