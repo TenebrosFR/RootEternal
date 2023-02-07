@@ -3219,7 +3219,7 @@ PrefabInstance:
     - target: {fileID: 6101831918992132079, guid: b81fce77a227972488cd468b61cd8c05, type: 3}
       propertyPath: restartScreen
       value: 
-      objectReference: {fileID: 4776408908826003394, guid: 5bb16cdab88edf74cabce6de83b9c74e, type: 3}
+      objectReference: {fileID: 1640819470}
     - target: {fileID: 7170231446273726302, guid: b81fce77a227972488cd468b61cd8c05, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -3447,6 +3447,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 622c4c0c179dca04d94cd2b3196086d7, type: 3}
   m_PrefabInstance: {fileID: 1585767927}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1640819470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4776408908826003394, guid: 5bb16cdab88edf74cabce6de83b9c74e, type: 3}
+  m_PrefabInstance: {fileID: 2013719513}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1660512947
 PrefabInstance:
