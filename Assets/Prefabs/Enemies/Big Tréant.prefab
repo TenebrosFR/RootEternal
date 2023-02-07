@@ -119,7 +119,7 @@ MonoBehaviour:
   damageInterval: 2
   Hp: 30
   damage: 10
-  pts: 0
+  pts: 3
   isGoingToDie: 0
 --- !u!95 &7914108267569019651
 Animator:
