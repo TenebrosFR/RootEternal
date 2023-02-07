@@ -17,8 +17,10 @@ public class SpawnSystem : MonoBehaviour
     int[] infNum = { 0, 0, 0, 0 };
     public int killCount;
     public int waveIndex = 0;
+
     public void Start() {
         LaunchWave(waveIndex);
+        waveIndex++;
     }
 
     public void Update() {
@@ -37,9 +39,8 @@ public class SpawnSystem : MonoBehaviour
         Score.instance.WaveScreen(current + 1);
         if (current < waveMonsters.Length) currentWave = waveMonsters[current].numbers;
         else {
-            //for(var i = 0; i< infNum.Length;) {
+            //for (var i = 0; i < infNum.Length;) {
             //    infNum[i] += Random.Range(0, 3);
-            //    Debug.Log(infNum[i]);
             //}
             //currentWave = infNum ;
             waveIndex = 0;

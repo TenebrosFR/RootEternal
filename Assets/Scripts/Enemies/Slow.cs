@@ -24,13 +24,13 @@ public class Slow : MonoBehaviour
     private IEnumerator SlowCoroutine()
     {
         isSlowed = true;
-        agent.speed/= 2;
+        agent.speed/= 5;
         Debug.Log("SlowMode active");
         yield return new WaitForSeconds(slowDuration);
         Frenesie.instance.DelockCharge();
         Frenesie.instance.ResetCharge();
         Debug.Log("Fin SlowMode");
-        agent.speed *= 2;
+        agent.speed *= 5;
         isSlowed = false;
     }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7170231446273726302}
   - component: {fileID: 6101831918992132079}
   - component: {fileID: 1765244956}
+  - component: {fileID: 8758568784099019817}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -96,3 +97,16 @@ MonoBehaviour:
   waveText: {fileID: 0}
   waveAnim: {fileID: 0}
   scoreAnim: {fileID: 0}
+  settingMenu: {fileID: 0}
+--- !u!114 &8758568784099019817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7170231446273726305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c86d7b6d27f1e948a0d70da2d8dbd4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
