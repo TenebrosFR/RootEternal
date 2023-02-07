@@ -111,10 +111,11 @@ MonoBehaviour:
   rb: {fileID: 8539803491397242227}
   Player:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   damageInterval: 2
   Hp: 30
   damage: 10
+  pts: 0
   isGoingToDie: 0
 --- !u!95 &7914108267569019651
 Animator:

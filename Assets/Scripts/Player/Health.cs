@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] int maxHealth = 100;
     [SerializeField] LayerMask EnemyLayer;
-    [SerializeField] private GameManager _gameManager;
+
     public int currentHealth;
 
     //
@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     {
         instance = this;
         currentHealth = maxHealth;
-        //_gameManager.SetMaxHealth(maxHealth);
+        GameManager.instance.SetMaxHealth(maxHealth);
     }
 
     void Update()
@@ -27,8 +27,8 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        //_gameManager.SetHealth(currentHealth);
-        if (currentHealth <= 0) _gameManager.Death();
+        GameManager.instance.SetHealth(currentHealth);
+        if (currentHealth <= 0) GameManager.instance.Death();
     }
 
     public void TakeHeal(int heal)
@@ -38,7 +38,7 @@ public class Health : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        //_gameManager.SetHealth(currentHealth);
+        GameManager.instance.SetHealth(currentHealth);
         Debug.Log("Vie actuelle:" + currentHealth);
     }
 }
