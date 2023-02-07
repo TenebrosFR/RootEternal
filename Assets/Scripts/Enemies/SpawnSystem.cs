@@ -49,7 +49,7 @@ public class SpawnSystem : MonoBehaviour
                 Vector3 newPosition;
                 do {
                     newPosition = new Vector3(Random.Range(-SpawnDistance, SpawnDistance), 0, Random.Range(-SpawnDistance, SpawnDistance));
-                } while (!Physics.CheckSphere(newPosition, 0));
+                } while (Physics.CheckSphere(newPosition, 0));
                 monsters.Add(Instantiate(prefabs[monsterIndex],newPosition,Quaternion.identity));
             }
         }
