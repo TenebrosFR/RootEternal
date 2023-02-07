@@ -14,11 +14,12 @@ public class SpawnSystem : MonoBehaviour
     int[] infinite = { 0, 0, 0, 0, 0 };
     [SerializeField] List<GameObject> monsters = new List<GameObject>();
     [SerializeField] float SpawnDistance = 50f;
-    int[] infNum = { 0, 0, 0, 0 };
+    int[] infNum;
     public int killCount;
     public int waveIndex = 0;
 
     public void Start() {
+        infNum = waveMonsters[waveMonsters.Length - 1].numbers;
         LaunchWave(waveIndex);
         waveIndex++;
     }
@@ -39,12 +40,10 @@ public class SpawnSystem : MonoBehaviour
         Score.instance.WaveScreen(current + 1);
         if (current < waveMonsters.Length) currentWave = waveMonsters[current].numbers;
         else {
-            //for (var i = 0; i < infNum.Length;) {
-            //    infNum[i] += Random.Range(0, 3);
-            //}
-            //currentWave = infNum ;
-            waveIndex = 0;
-            return;
+            for (var i = 0; i < infNum.Length; i++) {
+                infNum[i] += Random.Range(0, 3);
+            }
+            currentWave = infNum;
         }
         for (var monsterIndex = 0; monsterIndex < currentWave.Length; monsterIndex++) {
             for (var newMonster = 0; newMonster < currentWave[monsterIndex]; newMonster++) {
