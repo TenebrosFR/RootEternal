@@ -35,8 +35,6 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.lockState = CursorLockMode.Locked;
         SceneManager.LoadScene(0);
     }
     
