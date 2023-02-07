@@ -1855,20 +1855,56 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5584586661148885982, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
-      propertyPath: waveMonsters.Array.data[0].numbers.Array.data[0]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5584586661148885982, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
-      propertyPath: waveMonsters.Array.data[0].numbers.Array.data[1]
+      propertyPath: waveMonsters.Array.data[1].numbers.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5584586661148885982, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
+      propertyPath: waveMonsters.Array.data[2].numbers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584586661148885982, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
+      propertyPath: waveMonsters.Array.data[3].numbers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584586661148885982, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
+      propertyPath: waveMonsters.Array.data[4].numbers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584586661148885982, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
+      propertyPath: waveMonsters.Array.data[0].numbers.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584586661148885982, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
+      propertyPath: waveMonsters.Array.data[0].numbers.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584586661148885982, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
       propertyPath: waveMonsters.Array.data[0].numbers.Array.data[2]
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5584586661148885982, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
       propertyPath: waveMonsters.Array.data[0].numbers.Array.data[3]
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584586661148885982, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
+      propertyPath: waveMonsters.Array.data[1].numbers.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584586661148885982, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
+      propertyPath: waveMonsters.Array.data[2].numbers.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584586661148885982, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
+      propertyPath: waveMonsters.Array.data[3].numbers.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584586661148885982, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
+      propertyPath: waveMonsters.Array.data[4].numbers.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584586661148885982, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
+      propertyPath: waveMonsters.Array.data[4].numbers.Array.data[3]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5584586661148885983, guid: 2bb5763bd97408c419c01f23d699f6ec, type: 3}
       propertyPath: m_RootOrder
@@ -2065,11 +2101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5835453976366389154, guid: b4bce56d7d7ebd14f92e5314bf594f22, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8789736393330604724, guid: b4bce56d7d7ebd14f92e5314bf594f22, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8789736393330604724, guid: b4bce56d7d7ebd14f92e5314bf594f22, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
