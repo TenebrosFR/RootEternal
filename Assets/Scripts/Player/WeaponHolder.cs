@@ -6,6 +6,8 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField] public int damage;
     [SerializeField] Equipment equip;
     [SerializeField] Animator animator;
+    [SerializeField] Animator main;
+
 
     //weapon mesh
     [SerializeField] MeshFilter meshFilter;
@@ -34,6 +36,7 @@ public class WeaponHolder : MonoBehaviour
     public void PlayAnim()
     {
         weapon.SetTrigger("HitAction");
+        main.SetTrigger("Attack");
     }
 
     private void FixedUpdate() {
