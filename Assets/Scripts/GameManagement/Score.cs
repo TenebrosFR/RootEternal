@@ -11,6 +11,7 @@ public class Score : MonoBehaviour
     [SerializeField] Animator waveAnim;
     [SerializeField] Animator scoreAnim;
     [SerializeField] GameObject settingMenu;
+
     public static Score instance;
     public void Awake()
     {
